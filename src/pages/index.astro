@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
+import EventDetails from "../components/EventDetails.astro";
+import Venue from "../components/Venue.astro";
+import Parking from "../components/Parking.astro";
 ---
 
 <Layout>
@@ -26,7 +29,7 @@ import Section from "../components/Section.astro";
       title="Event Details"
       subtitle="Join us for our special day"
     >
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <EventDetails />
     </Section>
 
     <!-- Section 4: Venue -->
@@ -36,12 +39,12 @@ import Section from "../components/Section.astro";
       subtitle="Where to find us"
       variant="cream"
     >
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <Venue />
     </Section>
 
     <!-- Section 5: Parking -->
     <Section id="parking" title="Parking" subtitle="Parking information">
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <Parking />
     </Section>
 
     <!-- Section 6: RSVP -->

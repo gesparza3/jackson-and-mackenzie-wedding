@@ -92,7 +92,7 @@ Create the sticky header with navigation, mobile hamburger menu, and scaffold al
 
 ---
 
-### [~] 3.0 Event Details, Venue & Parking Sections
+### [x] 3.0 Event Details, Venue & Parking Sections
 
 Build the event schedule display, venue information with map embed, and parking instructions. These are the core informational sections guests need.
 
@@ -107,22 +107,22 @@ Build the event schedule display, venue information with map embed, and parking 
 
 #### 3.0 Tasks
 
-- [ ] 3.1 Create `src/components/EventDetails.astro` component
-- [ ] 3.2 Display ceremony time (4:00 PM) and reception time (4:45 PM)
-- [ ] 3.3 Add event date (June 13, 2026) and day-of schedule
-- [ ] 3.4 Style with icons (clock, calendar) from Lucide
-- [ ] 3.5 Create `src/components/Venue.astro` component
-- [ ] 3.6 Display venue name (The Justice Residence) and address
-- [ ] 3.7 Add Google Maps embed iframe or static map image
-- [ ] 3.8 Add "Get Directions" link (opens Google Maps)
-- [ ] 3.9 Add nearby hotels section (placeholder text)
-- [ ] 3.10 Create `src/components/Parking.astro` component
-- [ ] 3.11 Add parking instructions (placeholder text)
-- [ ] 3.12 Ensure all three sections are responsive
+- [x] 3.1 Create `src/components/EventDetails.astro` component
+- [x] 3.2 Display ceremony time (4:00 PM) and reception time (4:45 PM)
+- [x] 3.3 Add event date (June 13, 2026) and day-of schedule
+- [x] 3.4 Style with icons (clock, calendar) from Lucide
+- [x] 3.5 Create `src/components/Venue.astro` component
+- [x] 3.6 Display venue name (The Justice Residence) and address
+- [x] 3.7 Add Google Maps embed iframe or static map image
+- [x] 3.8 Add "Get Directions" link (opens Google Maps)
+- [x] 3.9 Add nearby hotels section (placeholder text)
+- [x] 3.10 Create `src/components/Parking.astro` component
+- [x] 3.11 Add parking instructions (placeholder text)
+- [x] 3.12 Ensure all three sections are responsive
 
 ---
 
-### [ ] 4.0 RSVP Section with Google Forms Integration
+### [~] 4.0 RSVP Section with Google Forms Integration
 
 Implement the RSVP section with embedded Google Form iframe and fallback link. Form collects guest names, attendance count, phone, and comments.
 

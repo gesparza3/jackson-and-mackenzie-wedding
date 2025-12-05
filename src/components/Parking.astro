@@ -1,0 +1,67 @@
+---
+import { Car, AlertCircle, Users } from "lucide-astro";
+---
+
+<div class="max-w-3xl mx-auto">
+  <div class="grid md:grid-cols-2 gap-6">
+    <!-- Parking Instructions -->
+    <div
+      class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-sage-light)]/30"
+    >
+      <div class="flex items-start gap-4 mb-4">
+        <div
+          class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center flex-shrink-0"
+        >
+          <Car class="w-6 h-6 text-[var(--color-sage-dark)]" />
+        </div>
+        <div>
+          <h3 class="text-xl font-heading text-[var(--color-charcoal)] mb-2">
+            Parking
+          </h3>
+          <p class="text-[var(--color-gray)]">
+            Free parking is available on-site. Please follow the signs upon
+            arrival to the designated parking area.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carpool Suggestion -->
+    <div
+      class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-sage-light)]/30"
+    >
+      <div class="flex items-start gap-4 mb-4">
+        <div
+          class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center flex-shrink-0"
+        >
+          <Users class="w-6 h-6 text-[var(--color-sage-dark)]" />
+        </div>
+        <div>
+          <h3 class="text-xl font-heading text-[var(--color-charcoal)] mb-2">
+            Carpooling
+          </h3>
+          <p class="text-[var(--color-gray)]">
+            We encourage carpooling when possible. Please coordinate with other
+            guests if you're coming from the same area.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Important Note -->
+  <div
+    class="mt-6 bg-[var(--color-sage-light)]/20 rounded-2xl p-6 flex items-start gap-4"
+  >
+    <AlertCircle
+      class="w-6 h-6 text-[var(--color-sage-dark)] flex-shrink-0 mt-0.5"
+    />
+    <div>
+      <p class="text-[var(--color-charcoal)] font-medium mb-1">Please Note</p>
+      <p class="text-[var(--color-gray)] text-sm">
+        The venue is located on a private residence. Please drive carefully on
+        the property and be mindful of the surroundings.
+      </p>
+    </div>
+  </div>
+</div>

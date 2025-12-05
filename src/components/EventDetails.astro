@@ -1,0 +1,68 @@
+---
+import { Calendar, Clock, MapPin } from "lucide-astro";
+---
+
+<div class="max-w-4xl mx-auto">
+  <!-- Date Card -->
+  <div class="text-center mb-12">
+    <div
+      class="inline-flex items-center gap-3 bg-[var(--color-sage-light)]/20 px-6 py-3 rounded-full mb-6"
+    >
+      <Calendar class="w-5 h-5 text-[var(--color-sage-dark)]" />
+      <span class="text-lg font-medium text-[var(--color-charcoal)]"
+        >Saturday, June 13, 2026</span
+      >
+    </div>
+  </div>
+
+  <!-- Schedule Grid -->
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- Ceremony -->
+    <div
+      class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-sage-light)]/30 text-center"
+    >
+      <div
+        class="w-16 h-16 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center mx-auto mb-4"
+      >
+        <Clock class="w-8 h-8 text-[var(--color-sage-dark)]" />
+      </div>
+      <h3 class="text-2xl font-heading text-[var(--color-charcoal)] mb-2">
+        Ceremony
+      </h3>
+      <p class="text-3xl font-heading text-[var(--color-sage-dark)] mb-4">
+        4:00 PM
+      </p>
+      <p class="text-[var(--color-gray)]">
+        Please arrive by 3:30 PM to be seated before the ceremony begins.
+      </p>
+    </div>
+
+    <!-- Reception -->
+    <div
+      class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-sage-light)]/30 text-center"
+    >
+      <div
+        class="w-16 h-16 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center mx-auto mb-4"
+      >
+        <MapPin class="w-8 h-8 text-[var(--color-sage-dark)]" />
+      </div>
+      <h3 class="text-2xl font-heading text-[var(--color-charcoal)] mb-2">
+        Reception
+      </h3>
+      <p class="text-3xl font-heading text-[var(--color-sage-dark)] mb-4">
+        4:45 PM
+      </p>
+      <p class="text-[var(--color-gray)]">
+        Cocktails, dinner, and dancing to follow the ceremony.
+      </p>
+    </div>
+  </div>
+
+  <!-- Dress Code -->
+  <div class="mt-12 text-center">
+    <p class="text-[var(--color-gray)]">
+      <span class="font-medium text-[var(--color-charcoal)]">Dress Code:</span> Semi-Formal
+      / Cocktail Attire
+    </p>
+  </div>
+</div>
