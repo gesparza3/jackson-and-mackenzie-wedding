@@ -118,12 +118,13 @@ const galleryImages = [
   </button>
 
   <!-- Image container -->
-  <div class="max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+  <div class="w-full h-full flex items-center justify-center p-4 md:p-8">
     <img
       id="lightbox-img"
       src=""
       alt=""
-      class="max-w-full max-h-[90vh] object-contain"
+      class="max-w-full max-h-full object-contain select-none"
+      style="touch-action: pan-x pan-y;"
     />
   </div>
 
