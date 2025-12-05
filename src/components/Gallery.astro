@@ -1,5 +1,5 @@
 ---
-// Gallery images - replace with actual photos
+// Gallery images
 const galleryImages = [
   {
     src: "/images/gallery/photo-1.jpg",
@@ -32,11 +32,13 @@ const galleryImages = [
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
     {
       galleryImages.map((image, index) => (
-        <div
+        <button
+          type="button"
           class:list={[
-            "overflow-hidden rounded-2xl shadow-sm border border-[var(--color-sage-light)]/30 group",
+            "gallery-thumb overflow-hidden rounded-2xl shadow-sm border border-[var(--color-sage-light)]/30 group cursor-pointer",
             index === 0 && "md:col-span-2 md:row-span-2",
           ]}
+          data-index={index}
         >
           <div class="aspect-square overflow-hidden bg-[var(--color-cream)]">
             <img
@@ -44,15 +46,185 @@ const galleryImages = [
               alt={image.alt}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               loading="lazy"
-              onerror={`this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%23b8c9a9%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%22200%22 y=%22200%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-size=%2260%22%3E📷%3C/text%3E%3C/svg%3E'`}
             />
           </div>
-        </div>
+        </button>
       ))
     }
   </div>
-
-  <p class="text-center text-[var(--color-gray)] text-sm mt-8">
-    More photos coming soon!
-  </p>
 </div>
+
+<!-- Lightbox -->
+<div
+  id="lightbox"
+  class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image lightbox"
+>
+  <!-- Close button -->
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white transition-colors"
+    aria-label="Close lightbox"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <!-- Previous button -->
+  <button
+    id="lightbox-prev"
+    class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-white/80 hover:text-white transition-colors"
+    aria-label="Previous image"
+  >
+    <svg
+      class="w-10 h-10"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Next button -->
+  <button
+    id="lightbox-next"
+    class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-white/80 hover:text-white transition-colors"
+    aria-label="Next image"
+  >
+    <svg
+      class="w-10 h-10"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+
+  <!-- Image container -->
+  <div class="max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-w-full max-h-[90vh] object-contain"
+    />
+  </div>
+
+  <!-- Image counter -->
+  <div
+    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm"
+  >
+    <span id="lightbox-counter"></span>
+  </div>
+</div>
+
+<script define:vars={{ galleryImages }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCounter = document.getElementById("lightbox-counter");
+    const closeBtn = document.getElementById("lightbox-close");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+    const thumbs = document.querySelectorAll(".gallery-thumb");
+
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      document.body.style.overflow = "";
+    }
+
+    function updateLightbox() {
+      const image = galleryImages[currentIndex];
+      lightboxImg.src = image.src;
+      lightboxImg.alt = image.alt;
+      lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateLightbox();
+    }
+
+    function prevImage() {
+      currentIndex =
+        (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateLightbox();
+    }
+
+    // Click handlers
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const index = parseInt(thumb.dataset.index, 10);
+        openLightbox(index);
+      });
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", prevImage);
+    nextBtn.addEventListener("click", nextImage);
+
+    // Close on backdrop click
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.classList.contains("hidden")) return;
+
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+    });
+
+    // Touch/swipe support
+    lightbox.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    lightbox.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextImage();
+        } else {
+          prevImage();
+        }
+      }
+    });
+  });
+</script>

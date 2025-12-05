@@ -5,9 +5,23 @@ const weddingDate = new Date("2026-06-13T16:00:00-07:00").getTime();
 
 <section
   id="hero"
-  class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[var(--color-sage-light)] to-[var(--color-cream)]"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
 >
-  <div class="container text-center px-4">
+  <!-- Background Image - Responsive -->
+  <picture class="absolute inset-0 w-full h-full">
+    <source media="(min-width: 768px)" srcset="/images/hero/hero-desktop.jpg" />
+    <img
+      src="/images/hero/hero-mobile.jpg"
+      alt="Jackson and Mackenzie"
+      class="w-full h-full object-cover"
+    />
+  </picture>
+
+  <!-- Light Overlay -->
+  <div class="absolute inset-0 bg-[var(--color-cream)]/80"></div>
+
+  <!-- Content -->
+  <div class="container text-center px-4 relative z-10">
     <!-- Names -->
     <h1
       class="text-5xl md:text-7xl lg:text-8xl font-heading text-[var(--color-charcoal)] mb-4"
