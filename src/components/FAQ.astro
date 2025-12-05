@@ -1,0 +1,71 @@
+---
+import { ChevronDown } from "lucide-astro";
+import faqData from "../data/faq.json";
+---
+
+<div class="max-w-2xl mx-auto">
+  <div class="space-y-4">
+    {
+      faqData.map((item, index) => (
+        <div class="faq-item bg-white rounded-2xl shadow-sm border border-[var(--color-sage-light)]/30 overflow-hidden">
+          <button
+            class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-cream)]/50 transition-colors"
+            aria-expanded="false"
+            data-index={index}
+          >
+            <span class="font-medium text-[var(--color-charcoal)]">
+              {item.question}
+            </span>
+            <ChevronDown class="w-5 h-5 text-[var(--color-sage-dark)] flex-shrink-0 faq-icon transition-transform duration-200" />
+          </button>
+          <div class="faq-content hidden px-6 pb-5">
+            <p class="text-[var(--color-gray)] leading-relaxed">
+              {item.answer}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .faq-item.open .faq-icon {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const trigger = item.querySelector(".faq-trigger");
+    const content = item.querySelector(".faq-content");
+
+    trigger?.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      // Close all other items
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove("open");
+          otherItem
+            .querySelector(".faq-trigger")
+            ?.setAttribute("aria-expanded", "false");
+          otherItem.querySelector(".faq-content")?.classList.add("hidden");
+        }
+      });
+
+      // Toggle current item
+      if (isOpen) {
+        item.classList.remove("open");
+        trigger.setAttribute("aria-expanded", "false");
+        content?.classList.add("hidden");
+      } else {
+        item.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+        content?.classList.remove("hidden");
+      }
+    });
+  });
+</script>

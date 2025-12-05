@@ -1,0 +1,84 @@
+---
+import { Heart, Calendar, MapPin, Sparkles } from 'lucide-astro';
+
+const timeline = [
+  {
+    date: "Summer 2019",
+    title: "First Meeting",
+    description: "We met through mutual friends at a summer barbecue. Little did we know that casual introduction would change our lives forever.",
+    icon: "heart"
+  },
+  {
+    date: "Fall 2019",
+    title: "First Date",
+    description: "Our first official date was at a cozy coffee shop downtown. We talked for hours and knew there was something special between us.",
+    icon: "calendar"
+  },
+  {
+    date: "2020-2024",
+    title: "Building Our Life Together",
+    description: "Through adventures, challenges, and countless memories, we grew stronger together. From road trips to quiet evenings at home, every moment brought us closer.",
+    icon: "mappin"
+  },
+  {
+    date: "December 2024",
+    title: "The Proposal",
+    description: "Jackson proposed during a magical winter evening. With tears of joy, Mackenzie said yes, and our next chapter began.",
+    icon: "sparkles"
+  }
+];
+
+const iconMap = {
+  heart: Heart,
+  calendar: Calendar,
+  mappin: MapPin,
+  sparkles: Sparkles
+};
+---
+
+<div class="max-w-3xl mx-auto">
+  <!-- Intro -->
+  <div class="text-center mb-12">
+    <p class="text-lg text-[var(--color-gray)] leading-relaxed">
+      Every love story is beautiful, but ours is our favorite. Here's how our journey began and led us to this moment.
+    </p>
+  </div>
+  
+  <!-- Timeline -->
+  <div class="relative">
+    <!-- Timeline line -->
+    <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-[var(--color-sage-light)] transform md:-translate-x-1/2"></div>
+    
+    {timeline.map((item, index) => {
+      const Icon = iconMap[item.icon as keyof typeof iconMap];
+      const isEven = index % 2 === 0;
+      
+      return (
+        <div class={`relative flex items-start mb-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+          <!-- Icon -->
+          <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
+            <div class="w-16 h-16 bg-white rounded-full border-4 border-[var(--color-sage)] flex items-center justify-center">
+              <Icon class="w-6 h-6 text-[var(--color-sage-dark)]" />
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class={`ml-24 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-sage-light)]/30">
+              <span class="text-sm text-[var(--color-sage-dark)] font-medium">{item.date}</span>
+              <h3 class="text-xl font-heading text-[var(--color-charcoal)] mt-1 mb-2">{item.title}</h3>
+              <p class="text-[var(--color-gray)] text-sm leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+  
+  <!-- Closing -->
+  <div class="text-center mt-8">
+    <p class="text-lg font-heading text-[var(--color-sage-dark)]">
+      And now, we can't wait to celebrate with you!
+    </p>
+  </div>
+</div>

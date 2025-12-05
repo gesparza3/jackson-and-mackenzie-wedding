@@ -179,7 +179,7 @@ Create the bridal party cards (3 bridesmaids, 3 groomsmen) with photos and bios,
 
 ---
 
-### [~] 6.0 Our Story, Registry, FAQ, Contact & Footer
+### [x] 6.0 Our Story, Registry, FAQ, Contact & Footer
 
 Complete the remaining content sections: Our Story narrative, Registry links, expandable FAQ accordion, Contact information, and site footer.
 
@@ -196,24 +196,24 @@ Complete the remaining content sections: Our Story narrative, Registry links, ex
 
 #### 6.0 Tasks
 
-- [ ] 6.1 Create `src/components/OurStory.astro` component
-- [ ] 6.2 Add placeholder narrative text (how they met, timeline)
-- [ ] 6.3 Style with timeline or card layout
-- [ ] 6.4 Create `src/components/Registry.astro` component
-- [ ] 6.5 Add placeholder registry links (Amazon, Target, etc.)
-- [ ] 6.6 Style as buttons/cards that open in new tabs
-- [ ] 6.7 Create `src/data/faq.json` with placeholder Q&A items
-- [ ] 6.8 Create `src/components/FAQ.astro` component
-- [ ] 6.9 Implement expandable accordion with client-side JS
-- [ ] 6.10 Create `src/components/Contact.astro` component
-- [ ] 6.11 Add contact email (placeholder) with mailto link
-- [ ] 6.12 Create `src/components/Footer.astro` component
-- [ ] 6.13 Add footer with couple names and year
-- [ ] 6.14 Test all sections and accordion functionality
+- [x] 6.1 Create `src/components/OurStory.astro` component
+- [x] 6.2 Add placeholder narrative text (how they met, timeline)
+- [x] 6.3 Style with timeline or card layout
+- [x] 6.4 Create `src/components/Registry.astro` component
+- [x] 6.5 Add placeholder registry links (Amazon, Target, etc.)
+- [x] 6.6 Style as buttons/cards that open in new tabs
+- [x] 6.7 Create `src/data/faq.json` with placeholder Q&A items
+- [x] 6.8 Create `src/components/FAQ.astro` component
+- [x] 6.9 Implement expandable accordion with client-side JS
+- [x] 6.10 Create `src/components/Contact.astro` component
+- [x] 6.11 Add contact email (placeholder) with mailto link
+- [x] 6.12 Create `src/components/Footer.astro` component
+- [x] 6.13 Add footer with couple names and year
+- [x] 6.14 Test all sections and accordion functionality
 
 ---
 
-### [ ] 7.0 Polish & GitHub Pages Deployment
+### [~] 7.0 Polish & GitHub Pages Deployment
 
 Final styling refinements, performance optimization, and deployment to GitHub Pages. Verify all sections work on the live site.
 

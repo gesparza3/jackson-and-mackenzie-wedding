@@ -3,12 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
+import OurStory from "../components/OurStory.astro";
 import EventDetails from "../components/EventDetails.astro";
 import Venue from "../components/Venue.astro";
 import Parking from "../components/Parking.astro";
 import RSVP from "../components/RSVP.astro";
 import BridalParty from "../components/BridalParty.astro";
 import Gallery from "../components/Gallery.astro";
+import Registry from "../components/Registry.astro";
+import FAQ from "../components/FAQ.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
@@ -23,7 +28,7 @@ import Gallery from "../components/Gallery.astro";
       subtitle="How we met and fell in love"
       variant="cream"
     >
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <OurStory />
     </Section>
 
     <!-- Section 3: Event Details -->
@@ -81,7 +86,7 @@ import Gallery from "../components/Gallery.astro";
 
     <!-- Section 9: Registry -->
     <Section id="registry" title="Registry" subtitle="Gift ideas">
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <Registry />
     </Section>
 
     <!-- Section 10: FAQ -->
@@ -91,20 +96,14 @@ import Gallery from "../components/Gallery.astro";
       subtitle="Frequently asked questions"
       variant="cream"
     >
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <FAQ />
     </Section>
 
     <!-- Section 11: Contact -->
     <Section id="contact" title="Contact" subtitle="Get in touch">
-      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+      <Contact />
     </Section>
   </main>
 
-  <!-- Footer placeholder -->
-  <footer class="bg-[var(--color-charcoal)] text-white py-8">
-    <div class="container mx-auto px-4 text-center">
-      <p class="font-heading text-xl mb-2">Jackson & Mackenzie</p>
-      <p class="text-[var(--color-gray)] text-sm">June 13, 2026</p>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

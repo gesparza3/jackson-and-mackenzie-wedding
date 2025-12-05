@@ -1,0 +1,37 @@
+---
+import { Heart } from "lucide-astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[var(--color-charcoal)] text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="text-center">
+      <!-- Names -->
+      <h2 class="text-3xl md:text-4xl font-heading mb-2">
+        Jackson <span class="text-[var(--color-sage)]">&</span> Mackenzie
+      </h2>
+
+      <!-- Date -->
+      <p class="text-[var(--color-sage-light)] text-lg mb-6">June 13, 2026</p>
+
+      <!-- Heart Icon -->
+      <div class="flex justify-center mb-6">
+        <Heart
+          class="w-6 h-6 text-[var(--color-sage)] fill-[var(--color-sage)]"
+        />
+      </div>
+
+      <!-- Thank You Message -->
+      <p class="text-gray-400 text-sm max-w-md mx-auto mb-8">
+        Thank you for being part of our special day. We can't wait to celebrate
+        with you!
+      </p>
+
+      <!-- Copyright -->
+      <p class="text-gray-500 text-xs">
+        © {currentYear} Jackson & Mackenzie. Made with love.
+      </p>
+    </div>
+  </div>
+</footer>
