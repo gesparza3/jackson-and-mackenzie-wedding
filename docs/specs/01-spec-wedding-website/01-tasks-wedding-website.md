@@ -122,7 +122,7 @@ Build the event schedule display, venue information with map embed, and parking 
 
 ---
 
-### [~] 4.0 RSVP Section with Google Forms Integration
+### [x] 4.0 RSVP Section with Google Forms Integration
 
 Implement the RSVP section with embedded Google Form iframe and fallback link. Form collects guest names, attendance count, phone, and comments.
 
@@ -137,19 +137,19 @@ Implement the RSVP section with embedded Google Form iframe and fallback link. F
 
 #### 4.0 Tasks
 
-- [ ] 4.1 Create `src/components/RSVP.astro` component
-- [ ] 4.2 Add section heading and intro text
-- [ ] 4.3 Embed Google Form via iframe (URL to be provided)
-- [ ] 4.4 Style iframe container for responsive sizing
-- [ ] 4.5 Add fallback "Open RSVP Form" button/link below iframe
-- [ ] 4.6 Style fallback link to open in new tab
-- [ ] 4.7 Add RSVP deadline text (if applicable)
-- [ ] 4.8 Test iframe display on desktop and mobile
-- [ ] 4.9 Create placeholder iframe URL for development
+- [x] 4.1 Create `src/components/RSVP.astro` component
+- [x] 4.2 Add section heading and intro text
+- [x] 4.3 Embed Google Form via iframe (URL to be provided)
+- [x] 4.4 Style iframe container for responsive sizing
+- [x] 4.5 Add fallback "Open RSVP Form" button/link below iframe
+- [x] 4.6 Style fallback link to open in new tab
+- [x] 4.7 Add RSVP deadline text (if applicable)
+- [x] 4.8 Test iframe display on desktop and mobile
+- [x] 4.9 Create placeholder iframe URL for development
 
 ---
 
-### [ ] 5.0 Bridal Party & Photo Gallery Sections
+### [~] 5.0 Bridal Party & Photo Gallery Sections
 
 Create the bridal party cards (3 bridesmaids, 3 groomsmen) with photos and bios, plus the photo gallery grid with 6 image slots. Use placeholder images initially.
 
