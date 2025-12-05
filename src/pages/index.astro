@@ -1,10 +1,104 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout>
+  <Header />
   <main>
     <Hero />
+
+    <!-- Section 2: Our Story -->
+    <Section
+      id="our-story"
+      title="Our Story"
+      subtitle="How we met and fell in love"
+      variant="cream"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 3: Event Details -->
+    <Section
+      id="details"
+      title="Event Details"
+      subtitle="Join us for our special day"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 4: Venue -->
+    <Section
+      id="venue"
+      title="Venue"
+      subtitle="Where to find us"
+      variant="cream"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 5: Parking -->
+    <Section id="parking" title="Parking" subtitle="Parking information">
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 6: RSVP -->
+    <Section
+      id="rsvp"
+      title="RSVP"
+      subtitle="Let us know if you can make it"
+      variant="cream"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 7: Bridal Party -->
+    <Section
+      id="bridal-party"
+      title="Bridal Party"
+      subtitle="Our favorite people"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 8: Gallery -->
+    <Section
+      id="gallery"
+      title="Gallery"
+      subtitle="Our journey together"
+      variant="cream"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 9: Registry -->
+    <Section id="registry" title="Registry" subtitle="Gift ideas">
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 10: FAQ -->
+    <Section
+      id="faq"
+      title="FAQ"
+      subtitle="Frequently asked questions"
+      variant="cream"
+    >
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
+
+    <!-- Section 11: Contact -->
+    <Section id="contact" title="Contact" subtitle="Get in touch">
+      <p class="text-center text-[var(--color-gray)]">Coming soon...</p>
+    </Section>
   </main>
+
+  <!-- Footer placeholder -->
+  <footer class="bg-[var(--color-charcoal)] text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p class="font-heading text-xl mb-2">Jackson & Mackenzie</p>
+      <p class="text-[var(--color-gray)] text-sm">June 13, 2026</p>
+    </div>
+  </footer>
 </Layout>

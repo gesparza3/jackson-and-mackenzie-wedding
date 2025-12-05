@@ -1,0 +1,38 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+  subtitle?: string;
+  variant?: "white" | "cream";
+  class?: string;
+}
+
+const {
+  id,
+  title,
+  subtitle,
+  variant = "white",
+  class: className = "",
+} = Astro.props;
+
+const bgClass = variant === "cream" ? "bg-[var(--color-cream)]" : "bg-white";
+---
+
+<section id={id} class:list={[bgClass, "py-16 md:py-24", className]}>
+  <div class="container mx-auto px-4">
+    {
+      title && (
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading text-[var(--color-charcoal)] mb-4">
+            {title}
+          </h2>
+          {subtitle && (
+            <p class="text-[var(--color-gray)] max-w-2xl mx-auto">{subtitle}</p>
+          )}
+          <div class="w-24 h-0.5 bg-[var(--color-sage)] mx-auto mt-6" />
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>

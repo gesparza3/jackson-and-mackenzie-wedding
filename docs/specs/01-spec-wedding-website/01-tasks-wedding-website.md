@@ -63,7 +63,7 @@ Initialize the Astro project with Tailwind CSS and create the hero section with 
 
 ---
 
-### [~] 2.0 Navigation & Section Structure
+### [x] 2.0 Navigation & Section Structure
 
 Create the sticky header with navigation, mobile hamburger menu, and scaffold all 11 section containers with smooth scroll behavior.
 
@@ -78,21 +78,21 @@ Create the sticky header with navigation, mobile hamburger menu, and scaffold al
 
 #### 2.0 Tasks
 
-- [ ] 2.1 Create `src/components/Header.astro` with site logo/names
-- [ ] 2.2 Add navigation links for all sections (Our Story, Details, RSVP, etc.)
-- [ ] 2.3 Implement sticky header with Tailwind (`sticky top-0`)
-- [ ] 2.4 Create mobile hamburger menu button with Lucide icon
-- [ ] 2.5 Implement mobile menu toggle with client-side JS
-- [ ] 2.6 Add smooth scroll CSS (`scroll-behavior: smooth`) and anchor links
-- [ ] 2.7 Create section wrapper component or pattern for consistent styling
-- [ ] 2.8 Add all 11 section containers to `index.astro` with IDs
-- [ ] 2.9 Style section containers with alternating backgrounds (white/cream)
-- [ ] 2.10 Test navigation scroll on desktop and mobile
-- [ ] 2.11 Add active section highlighting (optional, via Intersection Observer)
+- [x] 2.1 Create `src/components/Header.astro` with site logo/names
+- [x] 2.2 Add navigation links for all sections (Our Story, Details, RSVP, etc.)
+- [x] 2.3 Implement sticky header with Tailwind (`sticky top-0`)
+- [x] 2.4 Create mobile hamburger menu button with Lucide icon
+- [x] 2.5 Implement mobile menu toggle with client-side JS
+- [x] 2.6 Add smooth scroll CSS (`scroll-behavior: smooth`) and anchor links
+- [x] 2.7 Create section wrapper component or pattern for consistent styling
+- [x] 2.8 Add all 11 section containers to `index.astro` with IDs
+- [x] 2.9 Style section containers with alternating backgrounds (white/cream)
+- [x] 2.10 Test navigation scroll on desktop and mobile
+- [x] 2.11 Add active section highlighting (optional, via Intersection Observer)
 
 ---
 
-### [ ] 3.0 Event Details, Venue & Parking Sections
+### [~] 3.0 Event Details, Venue & Parking Sections
 
 Build the event schedule display, venue information with map embed, and parking instructions. These are the core informational sections guests need.
 
