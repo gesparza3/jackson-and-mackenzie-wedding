@@ -2,7 +2,7 @@
 
 **Spec Reference:** `01-spec-wedding-website/spec.md`  
 **Created:** 2024-12-04  
-**Status:** Planning
+**Status:** Complete
 
 ---
 
@@ -213,7 +213,7 @@ Complete the remaining content sections: Our Story narrative, Registry links, ex
 
 ---
 
-### [~] 7.0 Polish & GitHub Pages Deployment
+### [x] 7.0 Polish & GitHub Pages Deployment
 
 Final styling refinements, performance optimization, and deployment to GitHub Pages. Verify all sections work on the live site.
 
@@ -229,18 +229,18 @@ Final styling refinements, performance optimization, and deployment to GitHub Pa
 
 #### 7.0 Tasks
 
-- [ ] 7.1 Review all sections for visual consistency
-- [ ] 7.2 Add subtle animations/transitions (fade-in on scroll, hover states)
-- [ ] 7.3 Optimize images (compress, convert to WebP if needed)
-- [ ] 7.4 Run `npm run build` and verify static output
-- [ ] 7.5 Test build locally with `npm run preview`
-- [ ] 7.6 Create GitHub Actions workflow for deployment (`.github/workflows/deploy.yml`)
-- [ ] 7.7 Configure GitHub Pages in repository settings
-- [ ] 7.8 Push to main branch and trigger deployment
-- [ ] 7.9 Verify live site loads correctly
-- [ ] 7.10 Test RSVP form on live site
-- [ ] 7.11 Test all navigation and sections on mobile device
-- [ ] 7.12 Document any remaining placeholder content to replace
+- [x] 7.1 Review all sections for visual consistency
+- [x] 7.2 Add subtle animations/transitions (fade-in on scroll, hover states)
+- [x] 7.3 Optimize images (compress, convert to WebP if needed)
+- [x] 7.4 Run `npm run build` and verify static output
+- [x] 7.5 Test build locally with `npm run preview`
+- [x] 7.6 Create GitHub Actions workflow for deployment (`.github/workflows/deploy.yml`)
+- [x] 7.7 Configure GitHub Pages in repository settings
+- [x] 7.8 Push to main branch and trigger deployment
+- [x] 7.9 Verify live site loads correctly
+- [x] 7.10 Test RSVP form on live site
+- [x] 7.11 Test all navigation and sections on mobile device
+- [x] 7.12 Document any remaining placeholder content to replace
 
 ---
 

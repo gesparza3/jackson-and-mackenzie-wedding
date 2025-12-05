@@ -1,43 +1,74 @@
-# Astro Starter Kit: Minimal
+# Jackson & Mackenzie Wedding Website
 
-```sh
-npm create astro@latest -- --template minimal
+A modern, responsive wedding website for Jackson and Mackenzie's wedding on June 13, 2026.
+
+## 🌿 Features
+
+- **Single Page Application** - All content on one scrollable page
+- **Responsive Design** - Mobile-first approach with beautiful layouts on all devices
+- **Countdown Timer** - Real-time countdown to the wedding day
+- **RSVP Integration** - Embedded Google Form for guest responses
+- **Interactive FAQ** - Expandable accordion for common questions
+- **Photo Gallery** - Lazy-loaded image grid
+- **Bridal Party** - Cards for wedding party members
+
+## 🎨 Design
+
+- **Color Palette**: Sage green, white, and charcoal
+- **Typography**: Cormorant Garamond (headings) + Inter (body)
+- **Style**: Modern, minimalist, elegant
+
+## 🚀 Tech Stack
+
+- [Astro](https://astro.build) - Static site generator
+- [Tailwind CSS v4](https://tailwindcss.com) - Styling
+- [Lucide Icons](https://lucide.dev) - Icon library
+- [GitHub Pages](https://pages.github.com) - Hosting
+
+## 📁 Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/     # Astro components
+│   ├── data/           # JSON data files
+│   ├── layouts/        # Page layouts
+│   ├── pages/          # Page routes
+│   └── styles/         # Global CSS
+├── public/
+│   └── images/         # Static images
+├── docs/specs/         # Specification documents
+└── .github/workflows/  # CI/CD deployment
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+| Command           | Action                                 |
+| :---------------- | :------------------------------------- |
+| `npm install`     | Install dependencies                   |
+| `npm run dev`     | Start dev server at `localhost:4321`   |
+| `npm run build`   | Build production site to `./dist/`     |
+| `npm run preview` | Preview build locally before deploying |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📝 Customization
 
-## 👀 Want to learn more?
+### Update Content
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Bridal Party**: Edit `src/data/bridalParty.json`
+- **FAQ**: Edit `src/data/faq.json`
+- **RSVP Form**: Update URL in `src/components/RSVP.astro`
+- **Contact Email**: Update in `src/components/Contact.astro`
+
+### Add Photos
+
+1. Add images to `public/images/gallery/` (photo-1.jpg through photo-6.jpg)
+2. Add bridal party photos to `public/images/bridal-party/`
+
+## 🚀 Deployment
+
+The site automatically deploys to GitHub Pages when pushing to the `main` branch.
+
+**Live URL**: `https://[username].github.io/jackson-and-mackenzie-website/`
+
+## 📄 License
+
+Made with ❤️ for Jackson & Mackenzie's wedding.
