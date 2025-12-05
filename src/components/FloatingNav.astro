@@ -1,0 +1,273 @@
+---
+const navLinks = [
+  { href: "#our-story", label: "Story", short: "Story" },
+  { href: "#details", label: "Details", short: "Details" },
+  { href: "#venue", label: "Venue", short: "Venue" },
+  { href: "#rsvp", label: "RSVP", short: "RSVP" },
+  { href: "#bridal-party", label: "Party", short: "Party" },
+  { href: "#gallery", label: "Gallery", short: "Gallery" },
+  { href: "#registry", label: "Registry", short: "Registry" },
+  { href: "#faq", label: "FAQ", short: "FAQ" },
+];
+---
+
+<!-- Floating Pill Navigation -->
+<nav
+  id="floating-nav"
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 opacity-0 translate-y-4 pointer-events-none transition-all duration-300"
+  aria-label="Section navigation"
+>
+  <!-- Desktop: Full pill with labels -->
+  <div
+    class="hidden md:flex items-center gap-1 bg-white/95 backdrop-blur-md shadow-lg rounded-full px-2 py-2 border border-[var(--color-sage-light)]/30"
+  >
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="nav-pill-link px-3 py-1.5 text-xs uppercase tracking-wider text-[var(--color-gray)] hover:text-[var(--color-sage-dark)] hover:bg-[var(--color-sage-light)]/20 rounded-full transition-all duration-200"
+          data-section={link.href.slice(1)}
+        >
+          {link.short}
+        </a>
+      ))
+    }
+  </div>
+
+  <!-- Mobile: Compact dots with expandable menu -->
+  <div class="md:hidden">
+    <!-- Collapsed: Dot indicators -->
+    <div
+      id="mobile-dots"
+      class="flex items-center gap-2 bg-white/95 backdrop-blur-md shadow-lg rounded-full px-4 py-3 border border-[var(--color-sage-light)]/30"
+    >
+      <button
+        id="expand-nav-btn"
+        class="flex items-center gap-2 text-[var(--color-charcoal)]"
+        aria-label="Expand navigation"
+        aria-expanded="false"
+      >
+        <span
+          id="current-section-label"
+          class="text-xs uppercase tracking-wider font-medium">Story</span
+        >
+        <svg
+          class="w-4 h-4 transition-transform duration-200"
+          id="expand-icon"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 15l7-7 7 7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Expanded: Full menu -->
+    <div
+      id="mobile-expanded-nav"
+      class="hidden absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white/95 backdrop-blur-md shadow-lg rounded-2xl px-4 py-3 border border-[var(--color-sage-light)]/30 min-w-[200px]"
+    >
+      <div class="flex flex-col gap-1">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="mobile-nav-pill-link px-3 py-2 text-sm text-[var(--color-gray)] hover:text-[var(--color-sage-dark)] hover:bg-[var(--color-sage-light)]/20 rounded-lg transition-all duration-200 text-center"
+              data-section={link.href.slice(1)}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const floatingNav = document.getElementById("floating-nav");
+    const expandBtn = document.getElementById("expand-nav-btn");
+    const expandedNav = document.getElementById("mobile-expanded-nav");
+    const expandIcon = document.getElementById("expand-icon");
+    const currentSectionLabel = document.getElementById(
+      "current-section-label"
+    );
+    const navPillLinks = document.querySelectorAll(".nav-pill-link");
+    const mobileNavPillLinks = document.querySelectorAll(
+      ".mobile-nav-pill-link"
+    );
+
+    // Section IDs to observe (parking maps to venue for highlighting)
+    const sectionIds = [
+      "our-story",
+      "details",
+      "venue",
+      "parking",
+      "rsvp",
+      "bridal-party",
+      "gallery",
+      "registry",
+      "faq",
+      "contact",
+    ];
+
+    const sectionToNav = {
+      "our-story": "our-story",
+      details: "details",
+      venue: "venue",
+      parking: "venue",
+      rsvp: "rsvp",
+      "bridal-party": "bridal-party",
+      gallery: "gallery",
+      registry: "registry",
+      faq: "faq",
+      contact: "contact",
+    };
+
+    const sectionLabels = {
+      "our-story": "Story",
+      details: "Details",
+      venue: "Venue",
+      rsvp: "RSVP",
+      "bridal-party": "Party",
+      gallery: "Gallery",
+      registry: "Registry",
+      faq: "FAQ",
+      contact: "Contact",
+    };
+
+    const heroHeight = document.getElementById("hero")?.offsetHeight || 500;
+
+    function updateNavVisibility() {
+      const scrollY = window.scrollY;
+      if (scrollY > heroHeight * 0.5) {
+        floatingNav?.classList.remove(
+          "opacity-0",
+          "translate-y-4",
+          "pointer-events-none"
+        );
+        floatingNav?.classList.add(
+          "opacity-100",
+          "translate-y-0",
+          "pointer-events-auto"
+        );
+      } else {
+        floatingNav?.classList.add(
+          "opacity-0",
+          "translate-y-4",
+          "pointer-events-none"
+        );
+        floatingNav?.classList.remove(
+          "opacity-100",
+          "translate-y-0",
+          "pointer-events-auto"
+        );
+      }
+    }
+
+    function updateActiveSection() {
+      const scrollY = window.scrollY + window.innerHeight / 3;
+      let currentSection = sectionIds[0];
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (section && section.offsetTop <= scrollY) {
+          currentSection = id;
+        }
+      }
+
+      const navSection = sectionToNav[currentSection] || currentSection;
+
+      navPillLinks.forEach((link) => {
+        const linkSection = link.getAttribute("data-section");
+        if (linkSection === navSection) {
+          link.classList.add(
+            "bg-[var(--color-sage-light)]/30",
+            "text-[var(--color-sage-dark)]"
+          );
+        } else {
+          link.classList.remove(
+            "bg-[var(--color-sage-light)]/30",
+            "text-[var(--color-sage-dark)]"
+          );
+        }
+      });
+
+      mobileNavPillLinks.forEach((link) => {
+        const linkSection = link.getAttribute("data-section");
+        if (linkSection === navSection) {
+          link.classList.add(
+            "bg-[var(--color-sage-light)]/30",
+            "text-[var(--color-sage-dark)]",
+            "font-medium"
+          );
+        } else {
+          link.classList.remove(
+            "bg-[var(--color-sage-light)]/30",
+            "text-[var(--color-sage-dark)]",
+            "font-medium"
+          );
+        }
+      });
+
+      if (currentSectionLabel && sectionLabels[navSection]) {
+        currentSectionLabel.textContent = sectionLabels[navSection];
+      }
+    }
+
+    function toggleMobileNav() {
+      expandedNav?.classList.toggle("hidden");
+      expandIcon?.classList.toggle("rotate-180");
+      const isExpanded = !expandedNav?.classList.contains("hidden");
+      expandBtn?.setAttribute("aria-expanded", isExpanded.toString());
+    }
+
+    // Mobile expand button
+    expandBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMobileNav();
+    });
+
+    // Mobile nav links - navigate and close menu
+    mobileNavPillLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        expandedNav?.classList.add("hidden");
+        expandIcon?.classList.remove("rotate-180");
+        expandBtn?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("#floating-nav")) {
+        expandedNav?.classList.add("hidden");
+        expandIcon?.classList.remove("rotate-180");
+        expandBtn?.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Scroll handler
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateNavVisibility();
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial state
+    updateNavVisibility();
+    updateActiveSection();
+  });
+</script>

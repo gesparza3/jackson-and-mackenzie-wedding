@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+import FloatingNav from "../components/FloatingNav.astro";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import OurStory from "../components/OurStory.astro";
 import EventDetails from "../components/EventDetails.astro";
 import Venue from "../components/Venue.astro";
-import Parking from "../components/Parking.astro";
 import RSVP from "../components/RSVP.astro";
 import BridalParty from "../components/BridalParty.astro";
 import Gallery from "../components/Gallery.astro";
@@ -17,7 +16,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <Header />
+  <FloatingNav />
   <main>
     <Hero />
 
@@ -50,57 +49,48 @@ import Footer from "../components/Footer.astro";
       <Venue />
     </Section>
 
-    <!-- Section 5: Parking -->
-    <Section id="parking" title="Parking" subtitle="Parking information">
-      <Parking />
-    </Section>
-
-    <!-- Section 6: RSVP -->
-    <Section
-      id="rsvp"
-      title="RSVP"
-      subtitle="Let us know if you can make it"
-      variant="cream"
-    >
+    <!-- Section 5: RSVP -->
+    <Section id="rsvp" title="RSVP" subtitle="Let us know if you can make it">
       <RSVP />
     </Section>
 
-    <!-- Section 7: Bridal Party -->
+    <!-- Section 6: Bridal Party -->
     <Section
       id="bridal-party"
       title="Bridal Party"
       subtitle="Our favorite people"
+      variant="cream"
     >
       <BridalParty />
     </Section>
 
-    <!-- Section 8: Gallery -->
-    <Section
-      id="gallery"
-      title="Gallery"
-      subtitle="Our journey together"
-      variant="cream"
-    >
+    <!-- Section 7: Gallery -->
+    <Section id="gallery" title="Gallery" subtitle="Our journey together">
       <Gallery />
     </Section>
 
-    <!-- Section 9: Registry -->
-    <Section id="registry" title="Registry" subtitle="Gift ideas">
+    <!-- Section 8: Registry -->
+    <Section
+      id="registry"
+      title="Registry"
+      subtitle="Gift ideas"
+      variant="cream"
+    >
       <Registry />
     </Section>
 
-    <!-- Section 10: FAQ -->
-    <Section
-      id="faq"
-      title="FAQ"
-      subtitle="Frequently asked questions"
-      variant="cream"
-    >
+    <!-- Section 9: FAQ -->
+    <Section id="faq" title="FAQ" subtitle="Frequently asked questions">
       <FAQ />
     </Section>
 
-    <!-- Section 11: Contact -->
-    <Section id="contact" title="Contact" subtitle="Get in touch">
+    <!-- Section 10: Contact -->
+    <Section
+      id="contact"
+      title="Contact"
+      subtitle="Get in touch"
+      variant="cream"
+    >
       <Contact />
     </Section>
   </main>

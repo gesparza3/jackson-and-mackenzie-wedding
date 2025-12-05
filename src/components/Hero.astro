@@ -1,49 +1,96 @@
 ---
 // Wedding date: June 13, 2026 at 4:00 PM PT
-const weddingDate = new Date('2026-06-13T16:00:00-07:00').getTime();
+const weddingDate = new Date("2026-06-13T16:00:00-07:00").getTime();
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[var(--color-sage-light)] to-[var(--color-cream)]">
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[var(--color-sage-light)] to-[var(--color-cream)]"
+>
   <div class="container text-center px-4">
     <!-- Names -->
-    <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading text-[var(--color-charcoal)] mb-4">
+    <h1
+      class="text-5xl md:text-7xl lg:text-8xl font-heading text-[var(--color-charcoal)] mb-4"
+    >
       Jackson <span class="text-[var(--color-sage-dark)]">&</span> Mackenzie
     </h1>
-    
+
     <!-- Tagline -->
-    <p class="text-lg md:text-xl text-[var(--color-gray)] mb-2 tracking-widest uppercase">
+    <p
+      class="text-lg md:text-xl text-[var(--color-gray)] mb-2 tracking-widest uppercase"
+    >
       We're getting married!
     </p>
-    
+
     <!-- Date -->
-    <p class="text-2xl md:text-3xl font-heading text-[var(--color-charcoal)] mb-12">
+    <p
+      class="text-2xl md:text-3xl font-heading text-[var(--color-charcoal)] mb-12"
+    >
       June 13, 2026
     </p>
-    
+
     <!-- Countdown Timer -->
     <div id="countdown" class="flex justify-center gap-4 md:gap-8 mb-12">
       <div class="countdown-item">
-        <span id="days" class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]">---</span>
-        <span class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider">Days</span>
+        <span
+          id="days"
+          class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]"
+          >---</span
+        >
+        <span
+          class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider"
+          >Days</span
+        >
       </div>
       <div class="countdown-item">
-        <span id="hours" class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]">--</span>
-        <span class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider">Hours</span>
+        <span
+          id="hours"
+          class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]"
+          >--</span
+        >
+        <span
+          class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider"
+          >Hours</span
+        >
       </div>
       <div class="countdown-item">
-        <span id="minutes" class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]">--</span>
-        <span class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider">Minutes</span>
+        <span
+          id="minutes"
+          class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]"
+          >--</span
+        >
+        <span
+          class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider"
+          >Minutes</span
+        >
       </div>
       <div class="countdown-item">
-        <span id="seconds" class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]">--</span>
-        <span class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider">Seconds</span>
+        <span
+          id="seconds"
+          class="text-4xl md:text-6xl font-heading text-[var(--color-sage-dark)]"
+          >--</span
+        >
+        <span
+          class="text-sm md:text-base text-[var(--color-gray)] uppercase tracking-wider"
+          >Seconds</span
+        >
       </div>
     </div>
-    
+
     <!-- Scroll Indicator -->
     <a href="#our-story" class="inline-block animate-bounce">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[var(--color-sage-dark)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8 text-[var(--color-sage-dark)]"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
     </a>
   </div>
@@ -56,7 +103,7 @@ const weddingDate = new Date('2026-06-13T16:00:00-07:00').getTime();
     align-items: center;
     min-width: 60px;
   }
-  
+
   @media (min-width: 768px) {
     .countdown-item {
       min-width: 100px;
@@ -68,26 +115,35 @@ const weddingDate = new Date('2026-06-13T16:00:00-07:00').getTime();
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
-    
+
     if (distance < 0) {
-      document.getElementById('countdown').innerHTML = '<p class="text-3xl md:text-5xl font-heading text-[var(--color-sage-dark)]">Today\'s the day!</p>';
+      document.getElementById("countdown").innerHTML =
+        '<p class="text-3xl md:text-5xl font-heading text-[var(--color-sage-dark)]">Today\'s the day!</p>';
       return;
     }
-    
+
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    document.getElementById('days').textContent = days.toString();
-    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+    document.getElementById("days").textContent = days.toString();
+    document.getElementById("hours").textContent = hours
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("minutes").textContent = minutes
+      .toString()
+      .padStart(2, "0");
+    document.getElementById("seconds").textContent = seconds
+      .toString()
+      .padStart(2, "0");
   }
-  
+
   // Initial update
   updateCountdown();
-  
+
   // Update every second
   setInterval(updateCountdown, 1000);
 </script>

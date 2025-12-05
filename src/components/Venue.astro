@@ -1,5 +1,5 @@
 ---
-import { MapPin, Navigation, Hotel } from "lucide-astro";
+import { MapPin, Navigation, Hotel, Car, Users } from "lucide-astro";
 
 const venueAddress = "2741 Taylor Rd, Penryn, CA 95663";
 const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venueAddress)}`;
@@ -75,7 +75,7 @@ const googleMapsEmbed = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3
 
   <!-- Map Embed -->
   <div
-    class="rounded-2xl overflow-hidden shadow-sm border border-[var(--color-sage-light)]/30"
+    class="rounded-2xl overflow-hidden shadow-sm border border-[var(--color-sage-light)]/30 mb-12"
   >
     <iframe
       src={googleMapsEmbed}
@@ -87,5 +87,60 @@ const googleMapsEmbed = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3
       referrerpolicy="no-referrer-when-downgrade"
       title="Venue Location Map"
       class="w-full"></iframe>
+  </div>
+
+  <!-- Parking Subsection -->
+  <div id="parking" class="scroll-mt-24">
+    <h3
+      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-8"
+    >
+      Parking Information
+    </h3>
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Parking Instructions -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-sage-light)]/30"
+      >
+        <div class="flex items-start gap-4">
+          <div
+            class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <Car class="w-6 h-6 text-[var(--color-sage-dark)]" />
+          </div>
+          <div>
+            <h4 class="text-xl font-heading text-[var(--color-charcoal)] mb-2">
+              Limited Parking
+            </h4>
+            <p class="text-[var(--color-gray)]">
+              Parking is available on-site, but space is limited. Please follow
+              the signs upon arrival to the designated parking area.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carpool Suggestion -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-sage-light)]/30"
+      >
+        <div class="flex items-start gap-4">
+          <div
+            class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <Users class="w-6 h-6 text-[var(--color-sage-dark)]" />
+          </div>
+          <div>
+            <h4 class="text-xl font-heading text-[var(--color-charcoal)] mb-2">
+              Consider Carpooling
+            </h4>
+            <p class="text-[var(--color-gray)]">
+              If you're able to share a ride with other guests from your area,
+              it would be a big help! Feel free to coordinate with friends and
+              family.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
