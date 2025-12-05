@@ -5,8 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://grantesparza.github.io",
-  base: "/jackson-and-mackenzie-website",
+  site: "https://jacksonandmackenzie.com",
+  base: "/",
   output: "static",
   vite: {
     plugins: [tailwindcss()],

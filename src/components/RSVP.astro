@@ -2,11 +2,10 @@
 import { ExternalLink, Calendar } from "lucide-astro";
 
 // Placeholder Google Form URL - replace with actual form URL
-// const googleFormUrl =
-//   "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true";
-const googleFormUrl = "https://forms.gle/EpnLoYiv6VahAyQF7";
+const googleFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSf-4X746arECUgTKZsbQ09MsmG7kJzLnLIzzslq3cTK0suHZg/viewform?embedded=true";
 const googleFormDirectUrl =
-  "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform";
+  "https://docs.google.com/forms/d/e/1FAIpQLSf-4X746arECUgTKZsbQ09MsmG7kJzLnLIzzslq3cTK0suHZg/viewform";
 
 // RSVP deadline (optional)
 const rsvpDeadline = "May 15, 2026";
@@ -64,10 +63,13 @@ const rsvpDeadline = "May 15, 2026";
   <div class="mt-8 text-center text-sm text-[var(--color-gray)]">
     <p>The form will ask for:</p>
     <ul class="mt-2 space-y-1">
-      <li>• Guest name(s)</li>
-      <li>• Number attending</li>
-      <li>• Phone number (optional)</li>
-      <li>• Comments or dietary restrictions (optional)</li>
+      <li>• Name on invitation / Household name</li>
+      <li>• Primary guest full name</li>
+      <li>• Email address</li>
+      <li>• Will you be attending?</li>
+      <li>• Number of guests attending</li>
+      <li>• Names of all guests attending</li>
+      <li>• Additional notes (optional)</li>
     </ul>
   </div>
 </div>
