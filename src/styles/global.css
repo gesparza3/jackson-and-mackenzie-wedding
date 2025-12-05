@@ -20,6 +20,7 @@
 /* Base Styles */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +28,7 @@ body {
   color: var(--color-charcoal);
   background-color: white;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1,
@@ -40,16 +42,7 @@ h6 {
   line-height: 1.2;
 }
 
-/* Section Spacing */
-section {
-  padding: 5rem 1.5rem;
-}
-
-@media (min-width: 768px) {
-  section {
-    padding: 6rem 2rem;
-  }
-}
+/* Section Spacing - handled by Section.astro component */
 
 /* Container */
 .container {
