@@ -1,0 +1,58 @@
+---
+// Gallery images - replace with actual photos
+const galleryImages = [
+  {
+    src: "/images/gallery/photo-1.jpg",
+    alt: "Jackson and Mackenzie - Photo 1",
+  },
+  {
+    src: "/images/gallery/photo-2.jpg",
+    alt: "Jackson and Mackenzie - Photo 2",
+  },
+  {
+    src: "/images/gallery/photo-3.jpg",
+    alt: "Jackson and Mackenzie - Photo 3",
+  },
+  {
+    src: "/images/gallery/photo-4.jpg",
+    alt: "Jackson and Mackenzie - Photo 4",
+  },
+  {
+    src: "/images/gallery/photo-5.jpg",
+    alt: "Jackson and Mackenzie - Photo 5",
+  },
+  {
+    src: "/images/gallery/photo-6.jpg",
+    alt: "Jackson and Mackenzie - Photo 6",
+  },
+];
+---
+
+<div class="max-w-5xl mx-auto">
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    {
+      galleryImages.map((image, index) => (
+        <div
+          class:list={[
+            "overflow-hidden rounded-2xl shadow-sm border border-[var(--color-sage-light)]/30 group",
+            index === 0 && "md:col-span-2 md:row-span-2",
+          ]}
+        >
+          <div class="aspect-square overflow-hidden bg-[var(--color-cream)]">
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              onerror={`this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%23b8c9a9%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%22200%22 y=%22200%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-size=%2260%22%3E📷%3C/text%3E%3C/svg%3E'`}
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <p class="text-center text-[var(--color-gray)] text-sm mt-8">
+    More photos coming soon!
+  </p>
+</div>

@@ -149,7 +149,7 @@ Implement the RSVP section with embedded Google Form iframe and fallback link. F
 
 ---
 
-### [~] 5.0 Bridal Party & Photo Gallery Sections
+### [x] 5.0 Bridal Party & Photo Gallery Sections
 
 Create the bridal party cards (3 bridesmaids, 3 groomsmen) with photos and bios, plus the photo gallery grid with 6 image slots. Use placeholder images initially.
 
@@ -164,22 +164,22 @@ Create the bridal party cards (3 bridesmaids, 3 groomsmen) with photos and bios,
 
 #### 5.0 Tasks
 
-- [ ] 5.1 Create `src/data/bridalParty.json` with placeholder data (6 members)
-- [ ] 5.2 Add placeholder images to `public/images/bridal-party/`
-- [ ] 5.3 Create `src/components/BridalParty.astro` component
-- [ ] 5.4 Create individual party member card component
-- [ ] 5.5 Display 3 bridesmaids and 3 groomsmen in responsive grid
-- [ ] 5.6 Include photo, name, role, and bio for each
-- [ ] 5.7 Add placeholder images to `public/images/gallery/`
-- [ ] 5.8 Create `src/components/Gallery.astro` component
-- [ ] 5.9 Implement 6-image responsive grid layout
-- [ ] 5.10 Add lazy loading to gallery images (`loading="lazy"`)
-- [ ] 5.11 Style images with hover effects (optional)
-- [ ] 5.12 Test both sections on mobile
+- [x] 5.1 Create `src/data/bridalParty.json` with placeholder data (6 members)
+- [x] 5.2 Add placeholder images to `public/images/bridal-party/`
+- [x] 5.3 Create `src/components/BridalParty.astro` component
+- [x] 5.4 Create individual party member card component
+- [x] 5.5 Display 3 bridesmaids and 3 groomsmen in responsive grid
+- [x] 5.6 Include photo, name, role, and bio for each
+- [x] 5.7 Add placeholder images to `public/images/gallery/`
+- [x] 5.8 Create `src/components/Gallery.astro` component
+- [x] 5.9 Implement 6-image responsive grid layout
+- [x] 5.10 Add lazy loading to gallery images (`loading="lazy"`)
+- [x] 5.11 Style images with hover effects (optional)
+- [x] 5.12 Test both sections on mobile
 
 ---
 
-### [ ] 6.0 Our Story, Registry, FAQ, Contact & Footer
+### [~] 6.0 Our Story, Registry, FAQ, Contact & Footer
 
 Complete the remaining content sections: Our Story narrative, Registry links, expandable FAQ accordion, Contact information, and site footer.
 

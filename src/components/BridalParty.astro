@@ -1,0 +1,50 @@
+---
+import BridalPartyCard from "./BridalPartyCard.astro";
+import bridalPartyData from "../data/bridalParty.json";
+
+const { bridesmaids, groomsmen } = bridalPartyData;
+---
+
+<div class="max-w-6xl mx-auto">
+  <!-- Bridesmaids -->
+  <div class="mb-16">
+    <h3
+      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-8"
+    >
+      Bridesmaids
+    </h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      {
+        bridesmaids.map((person) => (
+          <BridalPartyCard
+            name={person.name}
+            role={person.role}
+            bio={person.bio}
+            image={person.image}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Groomsmen -->
+  <div>
+    <h3
+      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-8"
+    >
+      Groomsmen
+    </h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      {
+        groomsmen.map((person) => (
+          <BridalPartyCard
+            name={person.name}
+            role={person.role}
+            bio={person.bio}
+            image={person.image}
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>

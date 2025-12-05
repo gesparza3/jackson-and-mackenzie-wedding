@@ -1,0 +1,42 @@
+{
+  "bridesmaids": [
+    {
+      "name": "Sarah Johnson",
+      "role": "Maid of Honor",
+      "bio": "Mackenzie's best friend since college. They've shared countless adventures and late-night talks.",
+      "image": "/images/bridal-party/bridesmaid-1.jpg"
+    },
+    {
+      "name": "Emily Chen",
+      "role": "Bridesmaid",
+      "bio": "Mackenzie's sister and lifelong confidant. Always there with a listening ear and great advice.",
+      "image": "/images/bridal-party/bridesmaid-2.jpg"
+    },
+    {
+      "name": "Jessica Martinez",
+      "role": "Bridesmaid",
+      "bio": "A friend from work who quickly became family. Known for her infectious laugh and kind heart.",
+      "image": "/images/bridal-party/bridesmaid-3.jpg"
+    }
+  ],
+  "groomsmen": [
+    {
+      "name": "Michael Thompson",
+      "role": "Best Man",
+      "bio": "Jackson's brother and partner in crime since day one. The one who always has his back.",
+      "image": "/images/bridal-party/groomsman-1.jpg"
+    },
+    {
+      "name": "David Wilson",
+      "role": "Groomsman",
+      "bio": "College roommate turned lifelong friend. They've been through thick and thin together.",
+      "image": "/images/bridal-party/groomsman-2.jpg"
+    },
+    {
+      "name": "Chris Anderson",
+      "role": "Groomsman",
+      "bio": "Childhood friend who knows all of Jackson's secrets. A loyal friend through every chapter.",
+      "image": "/images/bridal-party/groomsman-3.jpg"
+    }
+  ]
+}
