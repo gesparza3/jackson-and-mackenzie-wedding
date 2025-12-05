@@ -7,21 +7,27 @@ const weddingDate = new Date("2026-06-13T16:00:00-07:00").getTime();
   id="hero"
   class="relative min-h-screen flex items-center justify-center overflow-hidden"
 >
-  <!-- Background Image - Responsive -->
-  <picture class="absolute inset-0 w-full h-full">
+  <!-- Background Image - Responsive with Parallax -->
+  <picture
+    id="hero-bg"
+    class="absolute inset-0 w-full h-full will-change-transform"
+  >
     <source media="(min-width: 768px)" srcset="/images/hero/hero-desktop.jpg" />
     <img
       src="/images/hero/hero-mobile.jpg"
       alt="Jackson and Mackenzie"
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover scale-110"
     />
   </picture>
 
   <!-- Light Overlay -->
   <div class="absolute inset-0 bg-[var(--color-cream)]/80"></div>
 
-  <!-- Content -->
-  <div class="container text-center px-4 relative z-10">
+  <!-- Content with Fade Effect -->
+  <div
+    id="hero-content"
+    class="container text-center px-4 relative z-10 will-change-transform"
+  >
     <!-- Names -->
     <h1
       class="text-5xl md:text-7xl lg:text-8xl font-heading text-[var(--color-charcoal)] mb-4"
@@ -160,4 +166,44 @@ const weddingDate = new Date("2026-06-13T16:00:00-07:00").getTime();
 
   // Update every second
   setInterval(updateCountdown, 1000);
+
+  // Parallax + Fade scroll effect
+  const heroBg = document.getElementById("hero-bg");
+  const heroContent = document.getElementById("hero-content");
+  const heroSection = document.getElementById("hero");
+
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    const heroHeight = heroSection?.offsetHeight || window.innerHeight;
+
+    // Only apply effects while in hero section
+    if (scrollY <= heroHeight) {
+      const progress = scrollY / heroHeight;
+
+      // Parallax: background moves slower (0.5x speed)
+      if (heroBg) {
+        heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+      }
+
+      // Fade + slight rise: content fades out and moves up
+      if (heroContent) {
+        heroContent.style.opacity = `${1 - progress * 1.5}`;
+        heroContent.style.transform = `translateY(${scrollY * -0.2}px)`;
+      }
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial state
+  handleScroll();
 </script>
