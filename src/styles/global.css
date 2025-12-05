@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Custom Theme Configuration */
+@theme {
+  /* Sage Green Palette */
+  --color-sage: #9caf88;
+  --color-sage-light: #b8c9a9;
+  --color-sage-dark: #7a8f6a;
+
+  /* Neutrals */
+  --color-cream: #faf9f6;
+  --color-charcoal: #1a1a1a;
+  --color-gray: #6b7280;
+
+  /* Font Family */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background-color: white;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Section Spacing */
+section {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
