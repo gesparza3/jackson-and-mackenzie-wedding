@@ -1,29 +1,40 @@
 ---
-import { Heart, Calendar, MapPin, Sparkles } from 'lucide-astro';
+import { Heart, Calendar, MapPin, Sparkles, BookOpen } from 'lucide-astro';
 
 const timeline = [
   {
-    date: "Summer 2019",
+    date: "Spring 2016",
     title: "First Meeting",
-    description: "We met through mutual friends at a summer barbecue. Little did we know that casual introduction would change our lives forever.",
+    description: "Met as freshmen in high school during Health & Safety class, a first connection that developed into a long-term relationship.",
+    image: "/images/gallery/photo-1.jpg",
     icon: "heart"
   },
   {
     date: "Fall 2019",
-    title: "First Date",
-    description: "Our first official date was at a cozy coffee shop downtown. We talked for hours and knew there was something special between us.",
+    title: "Senior Ball",
+    description: "Senior Ball was a memorable night from their school days.",
+    image: "/images/gallery/photo-2.jpg",
     icon: "calendar"
   },
   {
-    date: "2020-2024",
-    title: "Building Our Life Together",
-    description: "Through adventures, challenges, and countless memories, we grew stronger together. From road trips to quiet evenings at home, every moment brought us closer.",
+    date: "2019-2023",
+    title: "College Years",
+    description: "College years included moves, adopting their dog Pepper, and working toward graduation.",
+    image: "/images/gallery/photo-3.jpg",
+    icon: "book"
+  },
+  {
+    date: "May 2025",
+    title: "Moving in together",
+    description: "They moved into an apartment together.",
+    image: "/images/gallery/photo-5.jpg",
     icon: "mappin"
   },
   {
-    date: "December 2024",
+    date: "September 19th, 2025",
     title: "The Proposal",
-    description: "Jackson proposed during a magical winter evening. With tears of joy, Mackenzie said yes, and our next chapter began.",
+    description: "A surprise at home, he distracted her while setting up a slideshow of memories, balloons, and Pepper by their side.",
+    image: "/images/gallery/photo-4.jpg",
     icon: "sparkles"
   }
 ];
@@ -31,6 +42,7 @@ const timeline = [
 const iconMap = {
   heart: Heart,
   calendar: Calendar,
+  book: BookOpen,
   mappin: MapPin,
   sparkles: Sparkles
 };
@@ -40,7 +52,7 @@ const iconMap = {
   <!-- Intro -->
   <div class="text-center mb-12">
     <p class="text-lg text-[var(--color-gray)] leading-relaxed">
-      Every love story is beautiful, but ours is our favorite. Here's how our journey began and led us to this moment.
+      A brief timeline of how they met and a few key moments for guests who want a little background.
     </p>
   </div>
   
@@ -55,10 +67,16 @@ const iconMap = {
       
       return (
         <div class={`relative flex items-start mb-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-          <!-- Icon -->
+          <!-- Icon / Thumbnail -->
           <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
-            <div class="w-16 h-16 bg-white rounded-full border-4 border-[var(--color-sage)] flex items-center justify-center">
-              <Icon class="w-6 h-6 text-[var(--color-sage-dark)]" />
+            <div class="w-16 h-16 bg-white rounded-full border-4 border-[var(--color-sage)] flex items-center justify-center overflow-hidden">
+              {item.image ? (
+                <button type="button" class="ourstory-thumb w-full h-full" data-img={item.image} aria-label={`Open ${item.title} photo`}>
+                  <img src={item.image} alt={`${item.title} photo`} loading="lazy" class="w-full h-full object-cover grayscale opacity-90" />
+                </button>
+              ) : (
+                Icon ? <Icon class="w-6 h-6 text-[var(--color-sage-dark)]" /> : null
+              )}
             </div>
           </div>
           
@@ -66,7 +84,23 @@ const iconMap = {
           <div class={`ml-24 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-sage-light)]/30">
               <span class="text-sm text-[var(--color-sage-dark)] font-medium">{item.date}</span>
-              <h3 class="text-xl font-heading text-[var(--color-charcoal)] mt-1 mb-2">{item.title}</h3>
+              <h3 class={`text-xl font-heading text-[var(--color-charcoal)] mt-1 mb-2 flex items-center ${isEven ? 'md:justify-end md:text-right' : 'md:justify-start md:text-left'}`}>
+                {isEven ? (
+                  <>
+                    <span class="inline-flex items-center mr-3">
+                      <Icon class="w-5 h-5 text-[var(--color-sage-dark)]" />
+                    </span>
+                    <span>{item.title}</span>
+                  </>
+                ) : (
+                  <>
+                    <span>{item.title}</span>
+                    <span class="inline-flex items-center ml-3">
+                      <Icon class="w-5 h-5 text-[var(--color-sage-dark)]" />
+                    </span>
+                  </>
+                )}
+              </h3>
               <p class="text-[var(--color-gray)] text-sm leading-relaxed">{item.description}</p>
             </div>
           </div>
@@ -78,7 +112,45 @@ const iconMap = {
   <!-- Closing -->
   <div class="text-center mt-8">
     <p class="text-lg font-heading text-[var(--color-sage-dark)]">
-      And now, we can't wait to celebrate with you!
+      They look forward to celebrating with friends and family.
     </p>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const thumbs = document.querySelectorAll('.ourstory-thumb');
+    if (!thumbs.length) return;
+
+    thumbs.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const src = btn.getAttribute('data-img');
+        // Try to find matching gallery thumb
+        const galleryImgs = document.querySelectorAll('.gallery-thumb img');
+        let foundIndex = -1;
+        galleryImgs.forEach((img, i) => {
+          if (img.getAttribute('src') === src) foundIndex = i;
+        });
+
+        if (foundIndex >= 0) {
+          // Trigger gallery button
+          const galleryButtons = document.querySelectorAll('.gallery-thumb');
+          galleryButtons[foundIndex]?.click();
+        } else {
+          // Fallback: open lightbox and set image directly if present
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImg = document.getElementById('lightbox-img');
+          const lightboxCounter = document.getElementById('lightbox-counter');
+          if (lightbox && lightboxImg) {
+            lightboxImg.src = src;
+            lightboxImg.alt = btn.getAttribute('aria-label') || '';
+            lightboxCounter.textContent = '';
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      });
+    });
+  });
+</script>
