@@ -20,7 +20,7 @@ const timeline = [
     date: "2019-2023",
     title: "College Years",
     description: "College years included moves, adopting their dog Pepper, and working toward graduation.",
-    image: "/images/gallery/photo-3.jpg",
+    image: "/images/ourstory/college.png",
     icon: "book"
   },
   {
@@ -69,10 +69,10 @@ const iconMap = {
         <div class={`relative flex items-start mb-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
           <!-- Icon / Thumbnail -->
           <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
-            <div class="w-16 h-16 bg-white rounded-full border-4 border-[var(--color-sage)] flex items-center justify-center overflow-hidden">
+            <div class="w-20 h-20 bg-white rounded-full border-4 border-[var(--color-sage)] flex items-center justify-center overflow-hidden">
               {item.image ? (
                 <button type="button" class="ourstory-thumb w-full h-full" data-img={item.image} aria-label={`Open ${item.title} photo`}>
-                  <img src={item.image} alt={`${item.title} photo`} loading="lazy" class="w-full h-full object-cover grayscale opacity-90" />
+                  <img src={item.image} alt={`${item.title} photo`} loading="lazy" class="w-full h-full object-cover" />
                 </button>
               ) : (
                 Icon ? <Icon class="w-6 h-6 text-[var(--color-sage-dark)]" /> : null
@@ -81,7 +81,7 @@ const iconMap = {
           </div>
           
           <!-- Content -->
-          <div class={`ml-24 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+          <div class={`ml-28 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
             <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-sage-light)]/30">
               <span class="text-sm text-[var(--color-sage-dark)] font-medium">{item.date}</span>
               <h3 class={`text-xl font-heading text-[var(--color-charcoal)] mt-1 mb-2 flex items-center ${isEven ? 'md:justify-end md:text-right' : 'md:justify-start md:text-left'}`}>
