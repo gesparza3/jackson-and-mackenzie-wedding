@@ -90,3 +90,28 @@ button:focus-visible {
   background-color: var(--color-sage-light);
   color: var(--color-charcoal);
 }
+
+/* Bottom-sheet peek + expanded styles */
+.sheet-peek { /* visible handle */
+  touch-action: manipulation;
+  min-height: 56px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.sheet-handle { background: transparent; border: none; }
+
+.sheet-expanded { transform: translateY(0); padding: 6px 8px 12px 8px; pointer-events: auto; }
+
+.sheet-list-item:focus-visible,
+.sheet-list-item:active {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet-peek,
+  .sheet-expanded,
+  #expand-icon { transition: none !important; }
+}
+.pointer-events-auto { pointer-events: auto !important; }

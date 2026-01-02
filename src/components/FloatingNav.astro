@@ -14,7 +14,7 @@ const navLinks = [
 <!-- Floating Pill Navigation -->
 <nav
   id="floating-nav"
-  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 opacity-0 translate-y-4 pointer-events-none transition-all duration-300"
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 opacity-0 translate-y-4 transition-all duration-300"
   aria-label="Section navigation"
 >
   <!-- Desktop: Full pill with labels -->
@@ -34,60 +34,58 @@ const navLinks = [
     }
   </div>
 
-  <!-- Mobile: Compact dots with expandable menu -->
-  <div class="md:hidden">
-    <!-- Collapsed: Dot indicators -->
-    <div
-      id="mobile-dots"
-      class="flex items-center gap-2 bg-white/95 backdrop-blur-md shadow-lg rounded-full px-4 py-3 border border-[var(--color-sage-light)]/30"
-    >
-      <button
-        id="expand-nav-btn"
-        class="flex items-center gap-2 text-[var(--color-charcoal)]"
-        aria-label="Expand navigation"
-        aria-expanded="false"
-      >
-        <span
-          id="current-section-label"
-          class="text-xs uppercase tracking-wider font-medium">Story</span
-        >
-        <svg
-          class="w-4 h-4 transition-transform duration-200"
-          id="expand-icon"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 15l7-7 7 7"></path>
-        </svg>
-      </button>
-    </div>
+  <!-- mobile sheet moved outside to avoid transform stacking context issues -->
+</nav>
 
-    <!-- Expanded: Full menu -->
-    <div
-      id="mobile-expanded-nav"
-      class="hidden absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-white/95 backdrop-blur-md shadow-lg rounded-2xl px-4 py-3 border border-[var(--color-sage-light)]/30 min-w-[200px]"
-    >
-      <div class="flex flex-col gap-1">
+<!-- Mobile sheet placed outside of the nav to avoid transform stacking context issues -->
+  <div class="md:hidden">
+  <!-- Peek (always visible) -->
+  <div
+    id="sheet-peek"
+    class="sheet-peek fixed bottom-4 inset-x-4 z-60 flex items-center justify-between gap-3 px-4 py-3 bg-white/95 backdrop-blur-md shadow-lg rounded-full border border-[var(--color-sage-light)]/30 mx-auto max-w-[640px] pointer-events-auto"
+  >
+    <div class="flex items-center gap-2">
+      <div id="sheet-progress-pill" class="text-xs font-medium bg-[var(--color-sage-light)]/20 px-2 py-1 rounded-full">1 / {navLinks.length}</div>
+      <div id="current-section-label" class="text-xs uppercase tracking-wider font-medium">Story</div>
+    </div>
+    <button id="expand-nav-btn" class="sheet-handle flex items-center gap-2 text-[var(--color-charcoal)]" aria-label="Open site navigation" aria-expanded="false">
+      <svg class="w-4 h-4 transition-transform duration-200" id="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Expanded Bottom Sheet -->
+  <div id="mobile-expanded-nav" class="sheet-expanded hidden fixed inset-x-4 bottom-4 z-60 rounded-2xl bg-white/98 backdrop-blur-md shadow-2xl border border-[var(--color-sage-light)]/30 max-h-[80vh] overflow-auto pointer-events-auto">
+      <div class="p-2 border-b border-[var(--color-sage-light)]/20 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <button id="close-sheet-btn" aria-label="Close navigation" class="p-2 rounded-md">✕</button>
+          <div>
+            <div class="text-sm font-semibold">Site Sections</div>
+            <div class="text-xs text-[var(--color-gray)]">Browse the site</div>
+          </div>
+        </div>
+        <!-- numeric progress pill retained -->
+        <div id="sheet-progress-pill" class="text-xs font-medium bg-[var(--color-sage-light)]/20 px-2 py-1 rounded-full">1 / {navLinks.length}</div>
+      </div>
+
+    <div class="p-3">
+      <div class="flex flex-col gap-2">
         {
-          navLinks.map((link) => (
-            <a
-              href={link.href}
-              class="mobile-nav-pill-link px-3 py-2 text-sm text-[var(--color-gray)] hover:text-[var(--color-sage-dark)] hover:bg-[var(--color-sage-light)]/20 rounded-lg transition-all duration-200 text-center"
-              data-section={link.href.slice(1)}
-            >
-              {link.label}
+          navLinks.map((link, i) => (
+            <a href={link.href} class="sheet-list-item flex items-center justify-between gap-3 px-3 py-3 rounded-lg hover:bg-[var(--color-sage-light)]/10 transition-colors" data-section={link.href.slice(1)}>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--color-sage-light)]/20 text-sm font-medium">{i + 1}</div>
+                <div class="text-sm">{link.label}</div>
+              </div>
+              <div class="text-[var(--color-gray)]">›</div>
             </a>
           ))
         }
       </div>
     </div>
   </div>
-</nav>
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -95,13 +93,11 @@ const navLinks = [
     const expandBtn = document.getElementById("expand-nav-btn");
     const expandedNav = document.getElementById("mobile-expanded-nav");
     const expandIcon = document.getElementById("expand-icon");
-    const currentSectionLabel = document.getElementById(
-      "current-section-label"
-    );
+    const currentSectionLabel = document.getElementById("current-section-label");
     const navPillLinks = document.querySelectorAll(".nav-pill-link");
-    const mobileNavPillLinks = document.querySelectorAll(
-      ".mobile-nav-pill-link"
-    );
+    const sheetListItems = document.querySelectorAll(".sheet-list-item");
+    const closeSheetBtn = document.getElementById("close-sheet-btn");
+    const sheetProgressPill = document.getElementById("sheet-progress-pill");
 
     // Section IDs to observe (parking maps to venue for highlighting)
     const sectionIds = [
@@ -147,27 +143,11 @@ const navLinks = [
     function updateNavVisibility() {
       const scrollY = window.scrollY;
       if (scrollY > heroHeight * 0.5) {
-        floatingNav?.classList.remove(
-          "opacity-0",
-          "translate-y-4",
-          "pointer-events-none"
-        );
-        floatingNav?.classList.add(
-          "opacity-100",
-          "translate-y-0",
-          "pointer-events-auto"
-        );
+        floatingNav?.classList.remove("opacity-0", "translate-y-4");
+        floatingNav?.classList.add("opacity-100", "translate-y-0");
       } else {
-        floatingNav?.classList.add(
-          "opacity-0",
-          "translate-y-4",
-          "pointer-events-none"
-        );
-        floatingNav?.classList.remove(
-          "opacity-100",
-          "translate-y-0",
-          "pointer-events-auto"
-        );
+        floatingNav?.classList.add("opacity-0", "translate-y-4");
+        floatingNav?.classList.remove("opacity-100", "translate-y-0");
       }
     }
 
@@ -199,33 +179,44 @@ const navLinks = [
         }
       });
 
-      mobileNavPillLinks.forEach((link) => {
+      // Update sheet list visual state
+      sheetListItems.forEach((link) => {
         const linkSection = link.getAttribute("data-section");
         if (linkSection === navSection) {
-          link.classList.add(
-            "bg-[var(--color-sage-light)]/30",
-            "text-[var(--color-sage-dark)]",
-            "font-medium"
-          );
+          link.classList.add("bg-[var(--color-sage-light)]/30", "text-[var(--color-sage-dark)]", "font-medium");
         } else {
-          link.classList.remove(
-            "bg-[var(--color-sage-light)]/30",
-            "text-[var(--color-sage-dark)]",
-            "font-medium"
-          );
+          link.classList.remove("bg-[var(--color-sage-light)]/30", "text-[var(--color-sage-dark)]", "font-medium");
         }
       });
 
       if (currentSectionLabel && sectionLabels[navSection]) {
         currentSectionLabel.textContent = sectionLabels[navSection];
       }
+
+      // Update numeric progress pill (approximate index)
+      const allNavKeys = Object.keys(sectionLabels);
+      const index = Math.max(0, allNavKeys.indexOf(navSection));
+      const total = allNavKeys.length || navLinks.length;
+      if (sheetProgressPill) sheetProgressPill.textContent = `${index + 1} / ${total}`;
+    }
+
+    function openSheet() {
+      expandedNav?.classList.remove("hidden");
+      expandIcon?.classList.add("rotate-180");
+      expandBtn?.setAttribute("aria-expanded", "true");
+      // trap focus minimally
+      expandedNav?.querySelector("a, button")?.focus();
+    }
+
+    function closeSheet() {
+      expandedNav?.classList.add("hidden");
+      expandIcon?.classList.remove("rotate-180");
+      expandBtn?.setAttribute("aria-expanded", "false");
+      expandBtn?.focus();
     }
 
     function toggleMobileNav() {
-      expandedNav?.classList.toggle("hidden");
-      expandIcon?.classList.toggle("rotate-180");
-      const isExpanded = !expandedNav?.classList.contains("hidden");
-      expandBtn?.setAttribute("aria-expanded", isExpanded.toString());
+      if (expandedNav?.classList.contains("hidden")) openSheet(); else closeSheet();
     }
 
     // Mobile expand button
@@ -235,21 +226,24 @@ const navLinks = [
       toggleMobileNav();
     });
 
-    // Mobile nav links - navigate and close menu
-    mobileNavPillLinks.forEach((link) => {
+    // Close button inside sheet
+    closeSheetBtn?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeSheet();
+    });
+
+    // Sheet list links - close sheet on selection
+    sheetListItems.forEach((link) => {
       link.addEventListener("click", () => {
-        expandedNav?.classList.add("hidden");
-        expandIcon?.classList.remove("rotate-180");
-        expandBtn?.setAttribute("aria-expanded", "false");
+        closeSheet();
       });
     });
 
-    // Close menu when clicking outside
+    // Close sheet when clicking outside
     document.addEventListener("click", (e) => {
-      if (!e.target.closest("#floating-nav")) {
-        expandedNav?.classList.add("hidden");
-        expandIcon?.classList.remove("rotate-180");
-        expandBtn?.setAttribute("aria-expanded", "false");
+      if (!e.target.closest("#mobile-expanded-nav") && !e.target.closest("#sheet-peek")) {
+        closeSheet();
       }
     });
 
