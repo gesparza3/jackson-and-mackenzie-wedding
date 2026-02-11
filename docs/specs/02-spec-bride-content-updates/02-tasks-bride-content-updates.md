@@ -22,7 +22,7 @@
 
 ## Tasks
 
-### [~] 1.0 Establish content source mapping and update boundaries
+### [x] 1.0 Establish content source mapping and update boundaries
 
 #### 1.0 Proof Artifact(s)
 
@@ -37,7 +37,7 @@
 - [x] 1.3 Confirm no new public sections are introduced and that all changes stay inside existing content owners (`src/components/*` and `src/data/*`).
 - [x] 1.4 Record unresolved items in an implementation note so future passes can complete deferred copy/assets without re-discovery.
 
-### [ ] 2.0 Update story, schedule, and RSVP content in existing sections
+### [~] 2.0 Update story, schedule, and RSVP content in existing sections
 
 #### 2.0 Proof Artifact(s)
 
@@ -47,10 +47,10 @@
 
 #### 2.0 Tasks
 
-- [ ] 2.1 Update the timeline entries in `src/components/OurStory.astro` so milestone titles/descriptions reflect the latest bride-provided narrative.
-- [ ] 2.2 Update ceremony and reception details in `src/components/EventDetails.astro` to 5:30 PM ceremony, arrive by 5:00 PM, and 6:00 PM reception with cocktails/dinner/speeches/dancing wording.
-- [ ] 2.3 Update RSVP deadline text in `src/components/RSVP.astro` to April 25 and confirm surrounding section copy remains consistent with site tone.
-- [ ] 2.4 Run local preview and verify these three sections render without layout regressions on standard desktop/mobile widths.
+- [x] 2.1 Update the timeline entries in `src/components/OurStory.astro` so milestone titles/descriptions reflect the latest bride-provided narrative.
+- [x] 2.2 Update ceremony and reception details in `src/components/EventDetails.astro` to 5:30 PM ceremony, arrive by 5:00 PM, and 6:00 PM reception with cocktails/dinner/speeches/dancing wording.
+- [x] 2.3 Update RSVP deadline text in `src/components/RSVP.astro` to April 25 and confirm surrounding section copy remains consistent with site tone.
+- [x] 2.4 Run local preview and verify these three sections render without layout regressions on standard desktop/mobile widths.
 
 ### [ ] 3.0 Refresh bridal party, gallery handling, and registry options
 
