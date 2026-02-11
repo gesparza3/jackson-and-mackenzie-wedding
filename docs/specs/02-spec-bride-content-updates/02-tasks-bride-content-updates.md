@@ -68,7 +68,7 @@
 - [x] 3.4 Ensure `src/components/Registry.astro` includes Target, Crate & Barrel, Honeymoon Fund, and Household Fund with valid placeholder/final URLs as available.
 - [x] 3.5 Confirm `public/images/gallery/` asset filenames align with gallery references and document any missing files still required from the couple.
 
-### [~] 4.0 Standardize FAQ and contact language to bride-provided guidance
+### [x] 4.0 Standardize FAQ and contact language to bride-provided guidance
 
 #### 4.0 Proof Artifact(s)
 
@@ -84,7 +84,7 @@
 - [x] 4.4 Remove or neutralize coordinator emergency language unless finalized coordinator details are provided in source content.
 - [x] 4.5 Validate FAQ and Contact copy for consistency with the rest of the website tone.
 
-### [ ] 5.0 Validate build and capture completion evidence
+### [x] 5.0 Validate build and capture completion evidence
 
 #### 5.0 Proof Artifact(s)
 
@@ -94,7 +94,7 @@
 
 #### 5.0 Tasks
 
-- [ ] 5.1 Run `npm run build` and resolve any content-related build failures or warnings introduced by updates.
-- [ ] 5.2 Start local preview and capture screenshots for each scoped section group: (a) Story/Event/RSVP, (b) Bridal/Gallery/Registry, (c) FAQ/Contact.
-- [ ] 5.3 Compile a completion checklist that maps each proof artifact to parent tasks 1.0-4.0 and to corresponding spec success metrics.
-- [ ] 5.4 Perform a final pass to verify no out-of-scope design or structural changes were introduced.
+- [x] 5.1 Run `npm run build` and resolve any content-related build failures or warnings introduced by updates.
+- [x] 5.2 Start local preview and capture screenshots for each scoped section group: (a) Story/Event/RSVP, (b) Bridal/Gallery/Registry, (c) FAQ/Contact.
+- [x] 5.3 Compile a completion checklist that maps each proof artifact to parent tasks 1.0-4.0 and to corresponding spec success metrics.
+- [x] 5.4 Perform a final pass to verify no out-of-scope design or structural changes were introduced.
