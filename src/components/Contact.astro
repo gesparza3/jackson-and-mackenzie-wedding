@@ -2,12 +2,13 @@
 import { Mail, Phone, MessageCircle } from "lucide-astro";
 
 const contactEmail = "jackson.and.mackenzie@example.com";
+const contactPhone = "(916) 953-3076";
 ---
 
 <div class="max-w-2xl mx-auto text-center">
   <!-- Intro -->
   <p class="text-[var(--color-gray)] mb-10">
-    Have questions or need to reach us? We'd love to hear from you!
+    Have questions? Please text us and we will get back to you as soon as we can.
   </p>
 
   <!-- Contact Card -->
@@ -15,6 +16,27 @@ const contactEmail = "jackson.and.mackenzie@example.com";
     class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[var(--color-sage-light)]/30 max-w-md mx-auto"
   >
     <div class="flex flex-col items-center gap-6">
+      <!-- Text -->
+      <div class="flex items-center gap-4">
+        <div
+          class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center"
+        >
+          <Phone class="w-5 h-5 text-[var(--color-sage-dark)]" />
+        </div>
+        <div class="text-left">
+          <p class="text-sm text-[var(--color-gray)]">Text us at</p>
+          <a
+            href={`sms:${contactPhone.replace(/[()\\s-]/g, "")}`}
+            class="text-[var(--color-charcoal)] hover:text-[var(--color-sage-dark)] transition-colors font-medium"
+          >
+            {contactPhone}
+          </a>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="w-full h-px bg-[var(--color-sage-light)]/30"></div>
+
       <!-- Email -->
       <div class="flex items-center gap-4">
         <div
@@ -53,7 +75,6 @@ const contactEmail = "jackson.and.mackenzie@example.com";
 
   <!-- Note -->
   <p class="text-sm text-[var(--color-gray)] mt-8">
-    For urgent matters on the day of the wedding, please contact our wedding
-    coordinator.
+    For wedding-day logistics updates, please continue to use the text number above.
   </p>
 </div>

@@ -52,7 +52,7 @@
 - [x] 2.3 Update RSVP deadline text in `src/components/RSVP.astro` to April 25 and confirm surrounding section copy remains consistent with site tone.
 - [x] 2.4 Run local preview and verify these three sections render without layout regressions on standard desktop/mobile widths.
 
-### [~] 3.0 Refresh bridal party, gallery handling, and registry options
+### [x] 3.0 Refresh bridal party, gallery handling, and registry options
 
 #### 3.0 Proof Artifact(s)
 
@@ -68,7 +68,7 @@
 - [x] 3.4 Ensure `src/components/Registry.astro` includes Target, Crate & Barrel, Honeymoon Fund, and Household Fund with valid placeholder/final URLs as available.
 - [x] 3.5 Confirm `public/images/gallery/` asset filenames align with gallery references and document any missing files still required from the couple.
 
-### [ ] 4.0 Standardize FAQ and contact language to bride-provided guidance
+### [~] 4.0 Standardize FAQ and contact language to bride-provided guidance
 
 #### 4.0 Proof Artifact(s)
 
@@ -78,11 +78,11 @@
 
 #### 4.0 Tasks
 
-- [ ] 4.1 Update `src/data/faq.json` answers for plus-one, children, arrival timing, and indoor/outdoor ceremony details using bride-provided facts with site-consistent phrasing.
-- [ ] 4.2 Verify FAQ rendering and accordion interaction in `src/components/FAQ.astro` still works after content length/wording changes.
-- [ ] 4.3 Update `src/components/Contact.astro` to make `(916) 953-3076` the primary text contact method.
-- [ ] 4.4 Remove or neutralize coordinator emergency language unless finalized coordinator details are provided in source content.
-- [ ] 4.5 Validate FAQ and Contact copy for consistency with the rest of the website tone.
+- [x] 4.1 Update `src/data/faq.json` answers for plus-one, children, arrival timing, and indoor/outdoor ceremony details using bride-provided facts with site-consistent phrasing.
+- [x] 4.2 Verify FAQ rendering and accordion interaction in `src/components/FAQ.astro` still works after content length/wording changes.
+- [x] 4.3 Update `src/components/Contact.astro` to make `(916) 953-3076` the primary text contact method.
+- [x] 4.4 Remove or neutralize coordinator emergency language unless finalized coordinator details are provided in source content.
+- [x] 4.5 Validate FAQ and Contact copy for consistency with the rest of the website tone.
 
 ### [ ] 5.0 Validate build and capture completion evidence
 
