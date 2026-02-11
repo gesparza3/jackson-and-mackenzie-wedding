@@ -3,12 +3,6 @@ import { ExternalLink, Gift } from "lucide-astro";
 
 const registries = [
   {
-    name: "Amazon",
-    description: "A wide selection of items for our new home",
-    url: "https://www.amazon.com/wedding/registry",
-    color: "bg-[#FF9900]",
-  },
-  {
     name: "Target",
     description: "Everyday essentials and home decor",
     url: "https://www.target.com/gift-registry/wedding",
@@ -19,6 +13,18 @@ const registries = [
     description: "Quality furniture and kitchen items",
     url: "https://www.crateandbarrel.com/gift-registry",
     color: "bg-[#1a1a1a]",
+  },
+  {
+    name: "Honeymoon Fund",
+    description: "Help us make lasting memories on our honeymoon",
+    url: "https://withjoy.com/",
+    color: "bg-[#4b7563]",
+  },
+  {
+    name: "Household Fund",
+    description: "Contribute toward home and newlywed life essentials",
+    url: "https://withjoy.com/",
+    color: "bg-[#6b7280]",
   },
 ];
 ---
@@ -38,7 +44,7 @@ const registries = [
   </div>
 
   <!-- Registry Links -->
-  <div class="grid md:grid-cols-3 gap-6">
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
     {
       registries.map((registry) => (
         <a

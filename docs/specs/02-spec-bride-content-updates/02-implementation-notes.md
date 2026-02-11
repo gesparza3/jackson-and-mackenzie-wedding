@@ -39,3 +39,10 @@
 1. Replace deferred groomsmen placeholder bios when finalized wording is provided.
 2. Replace gallery placeholders with finalized couple-provided images/filenames.
 3. Add coordinator emergency details only after finalized coordinator contact is approved.
+
+## Gallery Asset Alignment Check
+
+- Current gallery references in `src/components/Gallery.astro`: `photo-1.jpg`, `photo-2.jpg`, `photo-4.jpg`, `photo-5.jpg`, `photo-6.jpg`.
+- Current files in `public/images/gallery/` match all active references.
+- Deprecated balloon image reference was removed from the active gallery list.
+- Still required from couple: finalized replacement image set and filenames for future gallery updates.

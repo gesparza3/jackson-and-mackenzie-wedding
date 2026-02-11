@@ -37,7 +37,7 @@
 - [x] 1.3 Confirm no new public sections are introduced and that all changes stay inside existing content owners (`src/components/*` and `src/data/*`).
 - [x] 1.4 Record unresolved items in an implementation note so future passes can complete deferred copy/assets without re-discovery.
 
-### [~] 2.0 Update story, schedule, and RSVP content in existing sections
+### [x] 2.0 Update story, schedule, and RSVP content in existing sections
 
 #### 2.0 Proof Artifact(s)
 
@@ -52,7 +52,7 @@
 - [x] 2.3 Update RSVP deadline text in `src/components/RSVP.astro` to April 25 and confirm surrounding section copy remains consistent with site tone.
 - [x] 2.4 Run local preview and verify these three sections render without layout regressions on standard desktop/mobile widths.
 
-### [ ] 3.0 Refresh bridal party, gallery handling, and registry options
+### [~] 3.0 Refresh bridal party, gallery handling, and registry options
 
 #### 3.0 Proof Artifact(s)
 
@@ -62,11 +62,11 @@
 
 #### 3.0 Tasks
 
-- [ ] 3.1 Update `src/data/bridalParty.json` bridesmaid entries to match provided names/bios and keep groomsmen content in current/deferred state where final text is not yet provided.
-- [ ] 3.2 Verify `src/components/BridalParty.astro` displays updated data cleanly with current card layout and placeholder behavior.
-- [ ] 3.3 Update `src/components/Gallery.astro` image references to remove deprecated balloon image usage and keep placeholder-compatible structure for future photo drop-ins.
-- [ ] 3.4 Ensure `src/components/Registry.astro` includes Target, Crate & Barrel, Honeymoon Fund, and Household Fund with valid placeholder/final URLs as available.
-- [ ] 3.5 Confirm `public/images/gallery/` asset filenames align with gallery references and document any missing files still required from the couple.
+- [x] 3.1 Update `src/data/bridalParty.json` bridesmaid entries to match provided names/bios and keep groomsmen content in current/deferred state where final text is not yet provided.
+- [x] 3.2 Verify `src/components/BridalParty.astro` displays updated data cleanly with current card layout and placeholder behavior.
+- [x] 3.3 Update `src/components/Gallery.astro` image references to remove deprecated balloon image usage and keep placeholder-compatible structure for future photo drop-ins.
+- [x] 3.4 Ensure `src/components/Registry.astro` includes Target, Crate & Barrel, Honeymoon Fund, and Household Fund with valid placeholder/final URLs as available.
+- [x] 3.5 Confirm `public/images/gallery/` asset filenames align with gallery references and document any missing files still required from the couple.
 
 ### [ ] 4.0 Standardize FAQ and contact language to bride-provided guidance
 

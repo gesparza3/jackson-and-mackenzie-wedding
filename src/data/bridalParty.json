@@ -1,21 +1,27 @@
 {
   "bridesmaids": [
     {
-      "name": "Kesley Gill",
+      "name": "Kelsey Gill",
       "role": "Maid of Honor",
-      "bio": "Mackenzie's sister.",
+      "bio": "Mackenzie's twin sister and lifelong best friend who has been by her side through every chapter of life.",
       "image": "/images/bridal-party/kelsey.jpg"
     },
     {
-      "name": "",
+      "name": "Megan Ganim",
       "role": "Bridesmaid",
-      "bio": "Friend of Mackenize. Insert bio here.",
+      "bio": "Mackenzie's cousin who she has always been close with and looked up to since day one, and the mother of their adorable flower girl.",
       "image": "https://placehold.co/300x400/b8c9a9/fff?text=Photo"
     },
     {
-      "name": "Jessica Martinez",
+      "name": "Stephanie Esparza",
       "role": "Bridesmaid",
-      "bio": "Friend of Mackenize. Insert bio here.",
+      "bio": "Mackenzie's soon-to-be sister-in-law, with whom she has built a close and meaningful friendship over the past nine years.",
+      "image": "https://placehold.co/300x400/b8c9a9/fff?text=Photo"
+    },
+    {
+      "name": "Sophie Boettcher",
+      "role": "Bridesmaid",
+      "bio": "Mackenzie's close friend from college, former roommate, and adventure buddy.",
       "image": "https://placehold.co/300x400/b8c9a9/fff?text=Photo"
     }
   ],
@@ -23,19 +29,19 @@
     {
       "name": "Grant Esparza",
       "role": "Best Man",
-      "bio": "Jackson's brother and partner in crime since day one.",
+      "bio": "Bio coming soon.",
       "image": "/images/bridal-party/grant.png"
     },
     {
       "name": "Bernie Graves",
       "role": "Groomsman",
-      "bio": "Jackson's stepbrother and one of his oldest friends.",
+      "bio": "Bio coming soon.",
       "image": "/images/bridal-party/bernie.jpg"
     },
     {
       "name": "Tristan George",
       "role": "Groomsman",
-      "bio": "Long time friend of Jackson. Namesake of Jackson and Mackenzie's future son.",
+      "bio": "Bio coming soon.",
       "image": "/images/bridal-party/tristan.jpg"
     }
   ]
