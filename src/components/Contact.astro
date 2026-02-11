@@ -1,8 +1,9 @@
 ---
-import { Mail, Phone, MessageCircle } from "lucide-astro";
+import { Phone, AlertTriangle } from "lucide-astro";
 
 const contactEmail = "jackson.and.mackenzie@example.com";
 const contactPhone = "(916) 953-3076";
+const coordinatorPhone = "(555) 555-5555"; // TODO: Add coordinator phone for urgent matters
 ---
 
 <div class="max-w-2xl mx-auto text-center">
@@ -15,11 +16,11 @@ const contactPhone = "(916) 953-3076";
   <div
     class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[var(--color-sage-light)]/30 max-w-md mx-auto"
   >
-    <div class="flex flex-col items-center gap-6">
+    <div class="flex flex-col items-start gap-6">
       <!-- Text -->
       <div class="flex items-center gap-4">
         <div
-          class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center"
+          class="w-12 h-12 shrink-0 aspect-square rounded-full bg-[var(--color-sage-light)]/30 flex items-center justify-center"
         >
           <Phone class="w-5 h-5 text-[var(--color-sage-dark)]" />
         </div>
@@ -37,37 +38,27 @@ const contactPhone = "(916) 953-3076";
       <!-- Divider -->
       <div class="w-full h-px bg-[var(--color-sage-light)]/30"></div>
 
-      <!-- Email -->
+      <!-- Urgent matters -->
       <div class="flex items-center gap-4">
         <div
-          class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center"
+          class="w-12 h-12 shrink-0 aspect-square rounded-full bg-[var(--color-sage-light)]/30 flex items-center justify-center"
         >
-          <Mail class="w-5 h-5 text-[var(--color-sage-dark)]" />
+          <AlertTriangle class="w-5 h-5 text-[var(--color-sage-dark)]" />
         </div>
         <div class="text-left">
-          <p class="text-sm text-[var(--color-gray)]">Email us at</p>
-          <a
-            href={`mailto:${contactEmail}`}
-            class="text-[var(--color-charcoal)] hover:text-[var(--color-sage-dark)] transition-colors font-medium break-all sm:break-normal"
-          >
-            {contactEmail}
-          </a>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="w-full h-px bg-[var(--color-sage-light)]/30"></div>
-
-      <!-- Response Time -->
-      <div class="flex items-center gap-4">
-        <div
-          class="w-12 h-12 bg-[var(--color-sage-light)]/30 rounded-full flex items-center justify-center"
-        >
-          <MessageCircle class="w-5 h-5 text-[var(--color-sage-dark)]" />
-        </div>
-        <div class="text-left">
-          <p class="text-sm text-[var(--color-gray)]">We'll respond within</p>
-          <p class="text-[var(--color-charcoal)] font-medium">24-48 hours</p>
+          <p class="text-sm text-[var(--color-charcoal)]">
+            For urgent matters please contact our coordinator
+            {coordinatorPhone ? (
+              <> at <a
+                href={`sms:${coordinatorPhone.replace(/[()\s-]/g, "")}`}
+                class="font-medium text-[var(--color-sage-dark)] hover:underline"
+              >
+                {coordinatorPhone}
+              </a></>
+            ) : (
+              "."
+            )}
+          </p>
         </div>
       </div>
     </div>

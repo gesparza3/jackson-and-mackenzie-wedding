@@ -1,9 +1,9 @@
 ---
 const navLinks = [
-  { href: "#our-story", label: "Story", short: "Story" },
   { href: "#details", label: "Details", short: "Details" },
   { href: "#venue", label: "Venue", short: "Venue" },
   { href: "#rsvp", label: "RSVP", short: "RSVP" },
+  { href: "#our-story", label: "Story", short: "Story" },
   { href: "#bridal-party", label: "Party", short: "Party" },
   { href: "#gallery", label: "Gallery", short: "Gallery" },
   { href: "#registry", label: "Registry", short: "Registry" },
@@ -42,11 +42,11 @@ const navLinks = [
   <!-- Peek (always visible) -->
   <div
     id="sheet-peek"
-    class="sheet-peek fixed bottom-4 inset-x-4 z-60 flex items-center justify-between gap-3 px-4 py-3 bg-white/95 backdrop-blur-md shadow-lg rounded-full border border-[var(--color-sage-light)]/30 mx-auto max-w-[640px] pointer-events-auto"
+    class="sheet-peek fixed bottom-4 inset-x-4 z-60 flex items-center justify-between gap-3 px-4 py-3 bg-white/95 backdrop-blur-md shadow-lg rounded-full border border-[var(--color-sage-light)]/30 mx-auto max-w-[640px] pointer-events-auto cursor-pointer hover:shadow-xl transition-shadow"
   >
     <div class="flex items-center gap-2">
       <div id="sheet-progress-pill" class="text-xs font-medium bg-[var(--color-sage-light)]/20 px-2 py-1 rounded-full">1 / {navLinks.length}</div>
-      <div id="current-section-label" class="text-xs uppercase tracking-wider font-medium">Story</div>
+      <div id="current-section-label" class="text-xs uppercase tracking-wider font-medium">Details</div>
     </div>
     <button id="expand-nav-btn" class="sheet-handle flex items-center gap-2 text-[var(--color-charcoal)]" aria-label="Open site navigation" aria-expanded="false">
       <svg class="w-4 h-4 transition-transform duration-200" id="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,6 +90,7 @@ const navLinks = [
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const floatingNav = document.getElementById("floating-nav");
+    const sheetPeek = document.getElementById("sheet-peek");
     const expandBtn = document.getElementById("expand-nav-btn");
     const expandedNav = document.getElementById("mobile-expanded-nav");
     const expandIcon = document.getElementById("expand-icon");
@@ -101,11 +102,11 @@ const navLinks = [
 
     // Section IDs to observe (parking maps to venue for highlighting)
     const sectionIds = [
-      "our-story",
       "details",
       "venue",
       "parking",
       "rsvp",
+      "our-story",
       "bridal-party",
       "gallery",
       "registry",
@@ -127,10 +128,10 @@ const navLinks = [
     };
 
     const sectionLabels = {
-      "our-story": "Story",
       details: "Details",
       venue: "Venue",
       rsvp: "RSVP",
+      "our-story": "Story",
       "bridal-party": "Party",
       gallery: "Gallery",
       registry: "Registry",
@@ -219,7 +220,14 @@ const navLinks = [
       if (expandedNav?.classList.contains("hidden")) openSheet(); else closeSheet();
     }
 
-    // Mobile expand button
+    // Make entire peek bar clickable
+    sheetPeek?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMobileNav();
+    });
+
+    // Mobile expand button (redundant but kept for accessibility)
     expandBtn?.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
