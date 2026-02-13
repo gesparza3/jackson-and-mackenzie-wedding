@@ -34,33 +34,6 @@ const coordinatorPhone = "(555) 555-5555"; // TODO: Add coordinator phone for ur
           </a>
         </div>
       </div>
-
-      <!-- Divider -->
-      <div class="w-full h-px bg-[var(--color-sage-light)]/30"></div>
-
-      <!-- Urgent matters -->
-      <div class="flex items-center gap-4">
-        <div
-          class="w-12 h-12 shrink-0 aspect-square rounded-full bg-[var(--color-sage-light)]/30 flex items-center justify-center"
-        >
-          <AlertTriangle class="w-5 h-5 text-[var(--color-sage-dark)]" />
-        </div>
-        <div class="text-left">
-          <p class="text-sm text-[var(--color-charcoal)]">
-            For urgent matters please contact our coordinator
-            {coordinatorPhone ? (
-              <> at <a
-                href={`sms:${coordinatorPhone.replace(/[()\s-]/g, "")}`}
-                class="font-medium text-[var(--color-sage-dark)] hover:underline"
-              >
-                {coordinatorPhone}
-              </a></>
-            ) : (
-              "."
-            )}
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 

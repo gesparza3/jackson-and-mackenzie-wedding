@@ -67,8 +67,8 @@ npm run preview  # Preview production build locally
 
 1. Hero 
 2. Event Details 
-3. Venue 
-4. RSVP 
+3. RSVP 
+4. Venue 
 5. Our Story 
 6. Bridal Party 
 7. Gallery 
