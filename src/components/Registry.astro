@@ -3,10 +3,10 @@ import { ExternalLink, Gift } from "lucide-astro";
 
 const registries = [
   {
-    name: "Target",
-    description: "Everyday essentials and home decor",
-    url: "https://www.target.com/gift-registry/wedding",
-    color: "bg-[#CC0000]",
+    name: "Honeymoon Fund",
+    description: "Help us make lasting memories on our honeymoon",
+    url: "https://withjoy.com/",
+    color: "bg-[#4b7563]",
   },
   {
     name: "Crate & Barrel",
@@ -15,10 +15,10 @@ const registries = [
     color: "bg-[#1a1a1a]",
   },
   {
-    name: "Honeymoon Fund",
-    description: "Help us make lasting memories on our honeymoon",
-    url: "https://withjoy.com/",
-    color: "bg-[#4b7563]",
+    name: "Target",
+    description: "Everyday essentials and home decor",
+    url: "https://www.target.com/gift-registry/wedding",
+    color: "bg-[#CC0000]",
   },
   {
     name: "Household Fund",
@@ -47,15 +47,22 @@ However, if you wish to honor us with a gift, we've registered at the following 
   <!-- Registry Links -->
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
     {
-      registries.map((registry) => (
+      registries.map((registry, index) => {
+        const isHoneymoonFund = index === 0;
+        return (
         <a
           href={registry.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="group bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-sage-light)]/30 hover:shadow-md transition-all text-center"
+          class:list={[
+            "group rounded-2xl p-6 shadow-sm hover:shadow-md transition-all text-center",
+            isHoneymoonFund
+              ? "bg-[var(--color-sage-light)]/10 border-2 border-[var(--color-sage-dark)]"
+              : "bg-white border border-[var(--color-sage-light)]/30",
+          ]}
         >
           <div
-            class={`w-12 h-12 ${registry.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}
+            class={`w-12 h-12 ${registry.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform motion-reduce:transform-none motion-reduce:transition-none`}
           >
             <span class="text-white font-bold text-lg">
               {registry.name.charAt(0)}
@@ -71,7 +78,8 @@ However, if you wish to honor us with a gift, we've registered at the following 
             View Registry <ExternalLink class="w-3 h-3" />
           </span>
         </a>
-      ))
+        );
+      })
     }
   </div>
 </div>
