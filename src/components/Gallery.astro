@@ -136,11 +136,20 @@ const galleryImages = [
 
   <!-- Image counter -->
   <div
+    id="lightbox-counter-wrap"
     class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm"
   >
     <span id="lightbox-counter"></span>
   </div>
 </div>
+
+<style>
+  #lightbox.lightbox-no-nav #lightbox-prev,
+  #lightbox.lightbox-no-nav #lightbox-next,
+  #lightbox.lightbox-no-nav #lightbox-counter-wrap {
+    display: none;
+  }
+</style>
 
 <script define:vars={{ galleryImages }}>
   document.addEventListener("DOMContentLoaded", () => {
@@ -159,12 +168,14 @@ const galleryImages = [
     function openLightbox(index) {
       currentIndex = index;
       updateLightbox();
+      lightbox.classList.remove("lightbox-no-nav");
       lightbox.classList.remove("hidden");
       lightbox.classList.add("flex");
       document.body.style.overflow = "hidden";
     }
 
     function closeLightbox() {
+      lightbox.classList.remove("lightbox-no-nav");
       lightbox.classList.add("hidden");
       lightbox.classList.remove("flex");
       document.body.style.overflow = "";

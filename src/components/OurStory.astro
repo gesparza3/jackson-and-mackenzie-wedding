@@ -130,32 +130,19 @@ const iconMap = {
     if (!thumbs.length) return;
 
     thumbs.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const src = btn.getAttribute('data-img');
-        // Try to find matching gallery thumb
-        const galleryImgs = document.querySelectorAll('.gallery-thumb img');
-        let foundIndex = -1;
-        galleryImgs.forEach((img, i) => {
-          if (img.getAttribute('src') === src) foundIndex = i;
-        });
-
-        if (foundIndex >= 0) {
-          // Trigger gallery button
-          const galleryButtons = document.querySelectorAll('.gallery-thumb');
-          galleryButtons[foundIndex]?.click();
-        } else {
-          // Fallback: open lightbox and set image directly if present
-          const lightbox = document.getElementById('lightbox');
-          const lightboxImg = document.getElementById('lightbox-img');
-          const lightboxCounter = document.getElementById('lightbox-counter');
-          if (lightbox && lightboxImg) {
-            lightboxImg.src = src;
-            lightboxImg.alt = btn.getAttribute('aria-label') || '';
-            lightboxCounter.textContent = '';
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-          }
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        if (lightbox && lightboxImg) {
+          lightboxImg.src = src;
+          lightboxImg.alt = btn.getAttribute('aria-label') || '';
+          lightboxCounter.textContent = '';
+          lightbox.classList.add('lightbox-no-nav');
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden';
         }
       });
     });
