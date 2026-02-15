@@ -141,6 +141,26 @@ const galleryImages = [
   >
     <span id="lightbox-counter"></span>
   </div>
+
+  <!-- Caption overlay (used by bridal party) -->
+  <div
+    id="lightbox-caption"
+    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent px-6 pt-12 pb-6 text-center hidden"
+  >
+    <p
+      id="lightbox-caption-role"
+      class="text-xs uppercase tracking-wider text-white/70 mb-1"
+    ></p>
+    <p
+      id="lightbox-caption-name"
+      class="text-xl font-bold text-white mb-2"
+      style="font-family: 'Cormorant Garamond', serif;"
+    ></p>
+    <p
+      id="lightbox-caption-bio"
+      class="text-sm text-white/90 leading-relaxed max-w-lg mx-auto"
+    ></p>
+  </div>
 </div>
 
 <style>
@@ -165,10 +185,13 @@ const galleryImages = [
     let touchStartX = 0;
     let touchEndX = 0;
 
+    const lightboxCaption = document.getElementById("lightbox-caption");
+
     function openLightbox(index) {
       currentIndex = index;
       updateLightbox();
       lightbox.classList.remove("lightbox-no-nav");
+      if (lightboxCaption) lightboxCaption.classList.add("hidden");
       lightbox.classList.remove("hidden");
       lightbox.classList.add("flex");
       document.body.style.overflow = "hidden";
@@ -176,6 +199,7 @@ const galleryImages = [
 
     function closeLightbox() {
       lightbox.classList.remove("lightbox-no-nav");
+      if (lightboxCaption) lightboxCaption.classList.add("hidden");
       lightbox.classList.add("hidden");
       lightbox.classList.remove("flex");
       document.body.style.overflow = "";

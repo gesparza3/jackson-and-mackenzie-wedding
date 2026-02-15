@@ -5,15 +5,15 @@ import bridalPartyData from "../data/bridalParty.json";
 const { bridesmaids, groomsmen } = bridalPartyData;
 ---
 
-<div class="max-w-6xl mx-auto">
+<div class="max-w-5xl mx-auto">
   <!-- Bridesmaids -->
-  <div class="mb-16">
+  <div class="mb-10">
     <h3
-      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-8"
+      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-5"
     >
       Bridesmaids
     </h3>
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
       {
         bridesmaids.map((person) => (
           <BridalPartyCard
@@ -30,11 +30,13 @@ const { bridesmaids, groomsmen } = bridalPartyData;
   <!-- Groomsmen -->
   <div>
     <h3
-      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-8"
+      class="text-2xl font-heading text-[var(--color-charcoal)] text-center mb-5"
     >
       Groomsmen
     </h3>
-    <div class="grid md:grid-cols-3 gap-6">
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 max-w-3xl mx-auto"
+    >
       {
         groomsmen.map((person) => (
           <BridalPartyCard
@@ -48,3 +50,46 @@ const { bridesmaids, groomsmen } = bridalPartyData;
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const thumbs = document.querySelectorAll(".bp-thumb");
+    if (!thumbs.length) return;
+
+    thumbs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const src = btn.getAttribute("data-img");
+        const name = btn.getAttribute("data-name") || "";
+        const role = btn.getAttribute("data-role") || "";
+        const bio = btn.getAttribute("data-bio") || "";
+
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxCounter = document.getElementById("lightbox-counter");
+        const caption = document.getElementById("lightbox-caption");
+        const captionName = document.getElementById("lightbox-caption-name");
+        const captionRole = document.getElementById("lightbox-caption-role");
+        const captionBio = document.getElementById("lightbox-caption-bio");
+
+        if (lightbox && lightboxImg) {
+          lightboxImg.src = src;
+          lightboxImg.alt = name;
+          if (lightboxCounter) lightboxCounter.textContent = "";
+
+          // Populate caption overlay
+          if (caption && captionName && captionRole && captionBio) {
+            captionRole.textContent = role;
+            captionName.textContent = name;
+            captionBio.textContent = bio;
+            caption.classList.remove("hidden");
+          }
+
+          lightbox.classList.add("lightbox-no-nav");
+          lightbox.classList.remove("hidden");
+          lightbox.classList.add("flex");
+          document.body.style.overflow = "hidden";
+        }
+      });
+    });
+  });
+</script>

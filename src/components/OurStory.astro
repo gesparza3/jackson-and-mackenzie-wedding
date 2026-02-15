@@ -135,10 +135,12 @@ const iconMap = {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxCaption = document.getElementById('lightbox-caption');
         if (lightbox && lightboxImg) {
           lightboxImg.src = src;
           lightboxImg.alt = btn.getAttribute('aria-label') || '';
           lightboxCounter.textContent = '';
+          if (lightboxCaption) lightboxCaption.classList.add('hidden');
           lightbox.classList.add('lightbox-no-nav');
           lightbox.classList.remove('hidden');
           lightbox.classList.add('flex');
